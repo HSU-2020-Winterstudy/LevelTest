@@ -6,6 +6,7 @@ labels: ''
 assignees: ''
 
 ---
+## Expected number of commits for this category : [N]
 
 ### Specific subject name
 * Requirements : [Explanation of minimum requirement for passing test.]
