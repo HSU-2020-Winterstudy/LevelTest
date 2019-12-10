@@ -10,7 +10,7 @@
 * [Arakene](https://github.com/kbh97102)
 * [dog-jh](https://github.com/dog-jh)
 * [susemeeee](https://github.com/susemeeee)
-* [RedTeaN](https://github.com/RedTeaN)
+* [HongChanHwi](https://github.com/Cwhist)
 * [unnokid](https://github.com/unnokid)
 * [Min-Kay](https://github.com/Min-Kay)
 * [Disarmy](https://github.com/Disarmy)
