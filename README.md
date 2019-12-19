@@ -1,7 +1,9 @@
 # Unofficial Hansung Univ. 2020 winter study group.
+* * *
 
-## Question
-[START](docs/Q0.md)
+[<h1>START</h1>](docs/Q0.md)
+
+* * *
 
 ## People
 ### Maintainer
