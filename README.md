@@ -1,7 +1,7 @@
 # Unofficial Hansung Univ. 2020 winter study group.
 * * *
 
-[<h1>START</h1>](docs/Q0.md)
+[<h1>START SOLVING</h1>](docs/Q0.md)
 
 * * *
 
