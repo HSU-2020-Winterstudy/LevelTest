@@ -52,11 +52,20 @@ public abstract class Person {
 
     /**
      *
+     * @param name Person's Name
+     */
+    public void setName(String name){
+        this.name = name;
+    }
+    /**
+     *
      * @return Person's sex (man or woman)
      */
     public String getSex() {
         return sex;
     }
+
+
 
     abstract public void work();
     abstract public void eat();
