@@ -1,5 +1,7 @@
 package question_1;
 
+import question_2.AutoIDGenerator;
+
 public class Person {
     private int ID;
     private String name;
@@ -11,7 +13,12 @@ public class Person {
      * @param sex = Person's sex (man or woman)
      */
     public Person(int ID, String name, String sex){
-        this.ID = ID;
+        if(AutoIDGenerator.checkIDIsEqual(ID)){
+            this.ID = ID;
+        }
+        else{
+            this.ID = -1;
+        }
         this.name = name;
         this.sex = sex;
     }
@@ -22,6 +29,7 @@ public class Person {
      * @param sex = Person's sex (man or woman)
      */
     public Person(String name, String sex){
+        this.ID = AutoIDGenerator.getNextID();
         this.name = name;
         this.sex = sex;
         this.ID = -1;
