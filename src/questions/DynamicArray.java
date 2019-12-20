@@ -26,4 +26,8 @@ public class DynamicArray<T> {
     public T get(int index){
         return dynamicArray[index];
     }
+
+    public int size(){
+        return nodes;
+    }
 }
