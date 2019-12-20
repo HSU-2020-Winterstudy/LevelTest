@@ -9,6 +9,9 @@ public class Person {
         this.ID = ID;
         this.name = name;
         this.sex = sex;
-        
+    }
+    public Person(String name, String sex){
+        this.name = name;
+        this.sex = sex;
     }
 }
