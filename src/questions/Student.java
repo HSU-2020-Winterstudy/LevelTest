@@ -1,6 +1,5 @@
-package question_3;
+package questions;
 
-import question_1.Person;
 
 public class Student extends Person {
     public Student(int ID, String name, String sex) {

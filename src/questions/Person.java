@@ -1,6 +1,5 @@
-package question_1;
+package questions;
 
-import question_2.AutoIDGenerator;
 
 public class Person {
     private int ID;
