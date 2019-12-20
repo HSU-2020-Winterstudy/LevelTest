@@ -22,4 +22,8 @@ public class DynamicArray<T> {
     public void put(T value){
         dynamicArray[nodes++] = value;
     }
+
+    public T get(int index){
+        return dynamicArray[index];
+    }
 }
