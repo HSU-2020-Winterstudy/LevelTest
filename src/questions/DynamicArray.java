@@ -53,4 +53,28 @@ public class DynamicArray<T> {
             e3.printStackTrace();
         }
     }
+    
+    public int contains(T data){
+        int index = -1;
+        if(type != String.class){
+            String arrayData;
+            String compareData = data.toString();
+            for(int i = 0; i< nodes; i++){
+                arrayData = dynamicArray[i].toString();
+                if(compareData.equals(arrayData)){
+                    index = i;
+                    break;
+                }
+            }
+        }
+        else{
+            for(int i = 0; i< nodes; i++){
+                if(data.equals(dynamicArray[i])){
+                    index = i;
+                    break;
+                }
+            }
+        }
+        return index;
+    }
 }
