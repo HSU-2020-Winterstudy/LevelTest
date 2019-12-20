@@ -18,4 +18,8 @@ public class DynamicArray<T> {
         nodes = 0;
         dynamicArray = (T[])Array.newInstance(type,defaultSize);
     }
+
+    public void put(T value){
+        dynamicArray[nodes++] = value;
+    }
 }
