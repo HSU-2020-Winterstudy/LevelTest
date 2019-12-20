@@ -20,30 +20,49 @@ public class Main {
         System.out.println(partTimer_2.toString());
         System.out.println(partTimer_3.toString());
 
-        student_1.work();
-        student_1.workPartTime();
-        student_1.eat();
+//        student_1.work();
+//        student_1.workPartTime();
+//        student_1.eat();
+//
+//        student_2.work();
+//        student_2.workPartTime();
+//        student_2.eat();
+//
+//        student_3.work();
+//        student_3.workPartTime();
+//        student_3.eat();
+//
+//        partTimer_1.work();
+//        partTimer_1.workPartTime();
+//        partTimer_1.eat();
+//
+//        partTimer_2.work();
+//        partTimer_2.workPartTime();
+//        partTimer_2.eat();
+//
+//        partTimer_3.work();
+//        partTimer_3.workPartTime();
+//        partTimer_3.eat();
 
-        student_2.work();
-        student_2.workPartTime();
-        student_2.eat();
+        PartTimeJob[] partTimeJobs = new PartTimeJob[6];
+        for(int i=0;i<3;i++){
+            partTimeJobs[i] = (PartTimeJob)Student.autoGenerator();
+        }
+        for(int i=3;i<6;i++){
+            partTimeJobs[i] = (PartTimeJob)PartTimer.autoGenerator();
+        }
 
-        student_3.work();
-        student_3.workPartTime();
-        student_3.eat();
+        for(int i=0;i<6;i++){
+            partTimeJobs[i].workPartTime();
+        }
+        for(PartTimeJob partTimeJob : partTimeJobs){
+            partTimeJob.workPartTime();
+        }
 
-        partTimer_1.work();
-        partTimer_1.workPartTime();
-        partTimer_1.eat();
-
-        partTimer_2.work();
-        partTimer_2.workPartTime();
-        partTimer_2.eat();
-
-        partTimer_3.work();
-        partTimer_3.workPartTime();
-        partTimer_3.eat();
-
+        int count=0;
+        while(count < partTimeJobs.length){
+            partTimeJobs[count++].workPartTime();
+        }
         /**
          *  Abstract Class can't be instance because that has not initialized methods
          **/
