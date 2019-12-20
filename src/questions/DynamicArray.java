@@ -53,7 +53,7 @@ public class DynamicArray<T> {
             e3.printStackTrace();
         }
     }
-    
+
     public int contains(T data){
         int index = -1;
         if(type != String.class){
@@ -76,5 +76,31 @@ public class DynamicArray<T> {
             }
         }
         return index;
+    }
+
+    public void remove(T data){
+        try{
+            if(nodes > 0){
+                int index = contains(data);
+                for(int i = index; i< nodes -1; i++){
+                    dynamicArray[i] = dynamicArray[i+1];
+                }
+                nodes--;
+            }
+        }catch(IndexOutOfBoundsException e1){
+            System.out.println("Can't remove, No data in Array");
+        }
+    }
+
+    public void remove(int index){
+        try{
+            if(nodes > 0){
+                if (nodes - 1 - index >= 0)
+                    System.arraycopy(dynamicArray, index + 1, dynamicArray, index, nodes - 1 - index);
+                nodes--;
+            }
+        }catch(IndexOutOfBoundsException e1){
+            System.out.println("Can't remove, No data in Array");
+        }
     }
 }
