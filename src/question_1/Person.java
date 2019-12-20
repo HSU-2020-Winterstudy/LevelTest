@@ -15,4 +15,16 @@ public class Person {
         this.sex = sex;
         this.ID = -1;
     }
+
+    public int getID() {
+        return ID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
 }
