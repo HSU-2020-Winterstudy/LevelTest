@@ -33,7 +33,6 @@ public abstract class Person {
         this.ID = AutoIDGenerator.getNextID();
         this.name = name;
         this.sex = sex;
-        this.ID = -1;
     }
 
     /**

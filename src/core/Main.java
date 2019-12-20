@@ -14,6 +14,13 @@ public class Main {
         PartTimer partTimer_2 = PartTimer.autoGenerator();
         PartTimer partTimer_3 = PartTimer.autoGenerator();
 
+        System.out.println(student_1.toString());
+        System.out.println(student_2.toString());
+        System.out.println(student_3.toString());
+        System.out.println(partTimer_1.toString());
+        System.out.println(partTimer_2.toString());
+        System.out.println(partTimer_3.toString());
+
         /**
          *  Abstract Class can't be instance because that has not initialized methods
          **/
