@@ -41,7 +41,9 @@ public abstract class Person {
     public int getID() {
         return ID;
     }
-
+    public void setID(int ID){
+        this.ID = ID;
+    }
     /**
      * @return Person's name
      */
