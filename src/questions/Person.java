@@ -1,7 +1,7 @@
 package questions;
 
 
-public class Person {
+public abstract class Person {
     private int ID;
     private String name;
     private String sex;
@@ -57,4 +57,7 @@ public class Person {
     public String getSex() {
         return sex;
     }
+
+    abstract public void work();
+    abstract public void eat();
 }
