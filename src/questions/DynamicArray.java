@@ -20,6 +20,9 @@ public class DynamicArray<T> {
     }
 
     public void put(T value){
+        if(nodes >= currentSize){
+            extend();
+        }
         dynamicArray[nodes++] = value;
     }
 
