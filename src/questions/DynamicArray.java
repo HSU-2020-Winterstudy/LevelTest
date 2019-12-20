@@ -30,4 +30,27 @@ public class DynamicArray<T> {
     public int size(){
         return nodes;
     }
+
+    @SuppressWarnings("unchecked")
+    public void extend(){
+        try{
+            currentSize = currentSize *2;
+            T[] temp = (T[])Array.newInstance(type,currentSize);
+            if (nodes >= 0) System.arraycopy(dynamicArray, 0, temp, 0, nodes);
+            dynamicArray = (T[])Array.newInstance(type, currentSize);
+            if (nodes >= 0) System.arraycopy(temp, 0, dynamicArray, 0, nodes);
+        }
+        catch (IndexOutOfBoundsException e1){
+            System.out.println("Index Error");
+            e1.printStackTrace();
+        }
+        catch (ArrayStoreException e2){
+            System.out.println("Type mismatch");
+            e2.printStackTrace();
+        }
+        catch (NullPointerException e3){
+            System.out.println("Friendly NullPointerException");
+            e3.printStackTrace();
+        }
+    }
 }
