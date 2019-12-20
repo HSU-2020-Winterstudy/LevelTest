@@ -1,7 +1,7 @@
 package questions;
 
 
-public class Student extends Person {
+public class Student extends Person implements PartTimeJob{
     public Student(int ID, String name, String sex) {
         super(ID, name, sex);
     }
@@ -17,6 +17,11 @@ public class Student extends Person {
     @Override
     public void eat() {
         System.out.println("kukbab");
+    }
+
+    @Override
+    public void workPartTime() {
+        System.out.println("Student workPartTime");
     }
     /**
      * ID's getter in Person class is already return Int
