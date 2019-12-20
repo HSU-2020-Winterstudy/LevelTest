@@ -50,4 +50,5 @@ public class Student extends Person implements PartTimeJob{
         student.setName(className+"-"+hashCode);
         return student;
     }
+
 }

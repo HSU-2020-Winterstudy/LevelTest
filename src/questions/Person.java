@@ -100,4 +100,10 @@ public abstract class Person {
         }
         return person;
     }
+
+
+    @Override
+    public String toString() {
+        return "Name "+name+" ID "+ID+" Sex "+sex;
+    }
 }
