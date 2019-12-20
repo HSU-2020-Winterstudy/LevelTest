@@ -19,6 +19,10 @@ public class DynamicArray<T> {
         dynamicArray = (T[])Array.newInstance(type,defaultSize);
     }
 
+    /**
+     * If number of array bigger than currentArraySize, Extend
+     * @param value == Input value
+     */
     public void put(T value){
         if(nodes >= currentSize){
             extend();
@@ -26,14 +30,24 @@ public class DynamicArray<T> {
         dynamicArray[nodes++] = value;
     }
 
+    /**
+     * @param index == Find index
+     * @return == Find Value
+     */
     public T get(int index){
         return dynamicArray[index];
     }
 
+    /**
+     * @return current Number of nodes
+     */
     public int size(){
         return nodes;
     }
 
+    /**
+     * If array is fulled, Extends array and Input value
+     */
     @SuppressWarnings("unchecked")
     public void extend(){
         try{
@@ -57,6 +71,10 @@ public class DynamicArray<T> {
         }
     }
 
+    /**
+     * @param data == Want to Find data
+     * @return == If find return Data's index, else return -1
+     */
     public int contains(T data){
         int index = -1;
         if(type != String.class){
@@ -81,6 +99,10 @@ public class DynamicArray<T> {
         return index;
     }
 
+    /**
+     * Find data's index First
+     * @param data == Want to Remove data
+     */
     public void remove(T data){
         try{
             if(nodes > 0){
@@ -95,6 +117,9 @@ public class DynamicArray<T> {
         }
     }
 
+    /**
+     * @param index == Want to Remove Data's index
+     */
     public void remove(int index){
         try{
             if(nodes > 0){
