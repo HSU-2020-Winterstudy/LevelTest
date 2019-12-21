@@ -1,6 +1,7 @@
 package questions;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class DynamicArray<T> {
     private T[] dynamicArray;
@@ -11,7 +12,7 @@ public class DynamicArray<T> {
     private Class<T> type;
 
     @SuppressWarnings("unchecked")
-    public DynamicArray(Class<T> type){
+    public DynamicArray( Class<T> type){
         this.type = type;
         currentSize = defaultSize;
         resizeDegree = 2;
