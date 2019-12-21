@@ -1,6 +1,10 @@
 package questions;
 
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Student extends Person implements PartTimeJob{
@@ -51,4 +55,17 @@ public class Student extends Person implements PartTimeJob{
         return student;
     }
 
+    @Override
+    public String toString() {
+        Class<?> classInfo = Student.class;
+        Method[] methods = classInfo.getDeclaredMethods();
+        Field[] fields = new Field[100];
+        int count = 0;
+        for(Field field : this.getClass().getDeclaredFields()){
+            field.setAccessible(true);
+            fields[count] = field;
+        }
+//        return "Student Name : "+getName()+" ID : "+getID()+" Sex : "+getSex()+" ClassName : "+ Arrays.toString(methods) + Arrays.toString(fields);
+        return Arrays.toString(methods)+Arrays.toString(fields);
+    }
 }
