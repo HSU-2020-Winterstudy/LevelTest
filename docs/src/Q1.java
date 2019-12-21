@@ -1,9 +1,10 @@
-/* Q3.md
+/* Q4.md
  * Author : unnokid
  * created date : 2019-12-21
  */
 
-public class Person
+//추상클래스
+public abstract class Person
 {
 	private int ID;
 	private String name;
@@ -59,6 +60,10 @@ public class Person
 		else
 			return false;
 	}
+	//추상메소드 생성
+	public abstract String work();
+
+	public abstract String eat();
 }
 public class Student extends Person
 {
@@ -90,5 +95,16 @@ public class Student extends Person
 	{
 		return this.StudentID;
 	}
+
+	public String work()
+	{
+		return "working";
+	}
+
+	public String eat()
+	{
+		return "eating";
+	}
+
 }
 
