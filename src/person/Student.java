@@ -42,6 +42,16 @@ public class Student extends Person {
         this.ID = nextID++;
     }
 
+    @Override
+    public void work() {
+
+    }
+
+    @Override
+    public void eat() {
+
+    }
+
     /**
      *
      * @return the ID of the student
