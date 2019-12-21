@@ -51,4 +51,42 @@ public class NewDynamic <T> {
             e3.printStackTrace();
         }
     }
+
+    public int contains(T data){
+        int index = -1;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i].equals(data)){
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+
+    public void remove(T data){
+        try{
+            if(nodes > 0){
+                int index = contains(data);
+                for(int i = index; i< nodes -1; i++){
+                    arr[i] = arr[i+1];
+                }
+                nodes--;
+            }
+        }catch(IndexOutOfBoundsException e1){
+            System.out.println("Can't remove, No data in Array");
+        }
+    }
+
+    public void remove(int index){
+        try{
+            if(nodes > 0){
+                if (nodes - 1 - index >= 0)
+                    System.arraycopy(arr, index + 1, arr, index, nodes - 1 - index);
+                nodes--;
+            }
+        }catch(IndexOutOfBoundsException e1){
+            System.out.println("Can't remove, No data in Array");
+        }
+    }
 }
