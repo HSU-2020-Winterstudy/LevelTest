@@ -35,7 +35,7 @@ public class PartTimer extends Person implements PartTimeJob{
         String hashCode;
         String sex;
         Random random = new Random(System.currentTimeMillis());
-        int randomSex = random.nextInt(2);
+        int randomSex = random.nextInt(3);
 
         if(randomSex == 1){
             sex = "men";
