@@ -5,7 +5,7 @@ package person;
  * Author: pllapallpal
  * Created date: 2019-12-20
  */
-public class Person {
+public abstract class Person {
 
     private int ID;
     private String name;
@@ -51,6 +51,10 @@ public class Person {
     public static boolean isCorrect(Person person) {
         return (person.ID > -1 && person.ID < nextID);
     }
+
+    public abstract void work();
+
+    public abstract void eat();
 
     /**
      *
