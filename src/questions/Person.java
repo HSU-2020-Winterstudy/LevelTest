@@ -4,17 +4,34 @@ package questions;
 import java.util.Random;
 
 public abstract class Person {
+    private static int nextID = 1;
     private int ID;
     private String name;
     private String sex;
 
+    public static boolean checkIDIsEqual(int ID){
+        if(ID != nextID){
+            return false;
+        }
+        nextID++;
+        return true;
+    }
+    public static int getNextID(){
+        return nextID;
+    }
+    public static boolean checkIsOk(Person person){
+        if(-1 < person.getID() && person.getID() < nextID){
+            return true;
+        }
+        return false;
+    }
     /**
      * @param ID   = Person's identify number
      * @param name = Person's name
      * @param sex  = Person's sex (man or woman)
      */
     public Person(int ID, String name, String sex) {
-        if (AutoIDGenerator.checkIDIsEqual(ID)) {
+        if (checkIDIsEqual(ID)) {
             this.ID = ID;
         } else {
             this.ID = -1;
@@ -30,7 +47,8 @@ public abstract class Person {
      * @param sex  = Person's sex (man or woman)
      */
     public Person(String name, String sex) {
-        this.ID = AutoIDGenerator.getNextID();
+        this.ID = getNextID();
+        nextID++;
         this.name = name;
         this.sex = sex;
     }
