@@ -1,4 +1,4 @@
-/* Q2.md
+/* Q3.md
  * Author : unnokid
  * created date : 2019-12-21
  */
@@ -59,6 +59,36 @@ public class Person
 		else
 			return false;
 	}
-
-
 }
+public class Student extends Person
+{
+	private int StudentID;
+	private static int nextID;
+	//Student의 ID는 학번으로 대체
+	//생성자 똑같이 호출
+	public Student(int ID,String name, String gender)
+	{
+		super(name,gender);
+		this.StudentID = ID;
+		if(nextID == ID)
+		{
+			this.StudentID= ID;
+			nextID++;
+		}
+		else
+			this.StudentID= -1;
+	}
+
+	public Student(String name,String gender)
+	{
+		super(name,gender);
+		this.StudentID = nextID;
+		nextID++;
+	}
+	//override getID()
+	public int getID()
+	{
+		return this.StudentID;
+	}
+}
+
