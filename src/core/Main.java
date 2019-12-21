@@ -13,10 +13,16 @@ public class Main {
 
         for(int i=0;i<100;i++){
             students.add(Student.autoGenerator());
-            System.out.println(Person.getNextID());
         }
+
         for(Student student : students){
-            System.out.println(student.toString());
+            StringBuilder studentName = new StringBuilder(student.getName());
+            studentName.setCharAt(0,'A');
+            student.setName(studentName.toString());
+        }
+
+        for(Student student : students){
+            System.out.println(student.getName());
         }
     }
 }
