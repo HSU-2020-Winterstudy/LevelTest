@@ -21,7 +21,7 @@ public class Person {
      */
     public Person(int ID, String name, String gender) {
         if (nextID == ID) {
-            this.ID = ID;
+            this.ID = nextID++;
         }
         else {
             ID = -1;
