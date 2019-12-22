@@ -1,6 +1,7 @@
 package questions.swing.graphics;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class LabelTextFieldPanel {
@@ -17,7 +18,26 @@ public class LabelTextFieldPanel {
         labels.setLayout(new GridLayout(3, 1));
 
 
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
+        topNameLabel.setBorder(border);
+        midNameLabel.setBorder(border);
+        botNameLabel.setBorder(border);
 
+        topNameLabel.setFont(new Font("궁서",Font.BOLD,30));
+        midNameLabel.setFont(new Font("궁서",Font.BOLD,30));
+        botNameLabel.setFont(new Font("궁서",Font.BOLD,30));
+        inputTF.setFont(new Font("궁서", Font.BOLD,20));
+        inputTF.setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
+
+        topNameLabel.setOpaque(true);
+        midNameLabel.setOpaque(true);
+        botNameLabel.setOpaque(true);
+        topNameLabel.setBackground(Color.white);
+        midNameLabel.setBackground(Color.white);
+        botNameLabel.setBackground(Color.white);
+        topNameLabel.setHorizontalAlignment(JLabel.CENTER);
+        midNameLabel.setHorizontalAlignment(JLabel.CENTER);
+        botNameLabel.setHorizontalAlignment(JLabel.CENTER);
 
         labels.add(topNameLabel);
         labels.add(midNameLabel);
