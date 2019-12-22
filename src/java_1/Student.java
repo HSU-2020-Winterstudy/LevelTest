@@ -24,5 +24,21 @@ public class Student extends Person {
 	public int getID() {
 		return this.ID;
 	}
+	
+	/**
+	 * Person의 추상메서드 work()을 오버라이드한 메서드입니다.
+	 */
+	@Override
+	public void work() {
+		
+	}
+
+	/**
+	 * Person의 추상메서드 eat()을 오버라이드한 메서드입니다.
+	 */
+	@Override
+	public void eat() {
+		
+	}
 
 }

@@ -4,7 +4,7 @@ package java_1;
  * Author : Cwhist 
  * Created : 2019-12-22
  */
-public class Person {
+public abstract class Person {
 	private static int ID;
 	private static int nextID = 0;
 	private String name;
@@ -74,5 +74,11 @@ public class Person {
 		else
 			return false;
 	}
+	
+	/**
+	 * Person의 추상 메서드입니다.
+	 */
+	public abstract void work();
+	public abstract void eat();
 	
 }
