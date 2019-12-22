@@ -47,6 +47,12 @@ public class Person {
     }
 
     /*
+     * @return Person's nextID */
+    public static int getNextID(){
+        return nextID;
+    }
+    
+    /*
      * @return Person is correct*/
     public static boolean isCorrect() {
         if (this.id > -1 && this.id < nextID)
