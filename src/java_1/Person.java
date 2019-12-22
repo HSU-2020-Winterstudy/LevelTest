@@ -5,7 +5,8 @@ package java_1;
  * Created : 2019-12-22
  */
 public class Person {
-	private int ID;
+	private static int ID;
+	private static int nextID = 0;
 	private String name;
 	private String gender;
 
@@ -13,7 +14,10 @@ public class Person {
 	 * Person 클래스의 생성자 메서드입니다. id, 이름, 성별을 입력받아 클래스를 생성합니다.
 	 */
 	public Person(int ID, String name, String gender) {
-		this.ID = ID;
+		if(ID != this.nextID)
+			this.ID = -1;
+		else 
+			this.ID = ID;
 		this.name = name;
 		this.gender = gender;
 	}
@@ -24,7 +28,7 @@ public class Person {
 	public Person(String name, String gender) {
 		this.name = name;
 		this.gender = gender;
-		this.ID = -1;
+		this.ID = nextID++;
 	}
 
 	/**
@@ -49,6 +53,26 @@ public class Person {
 	 */
 	public String getGender() {
 		return gender;
+	}
+	
+	/**
+	 * nextID의 getter 메서드입니다. Person의 nextID를 리턴합니다.
+	 * @return nextID in Person
+	 */
+	public static int getNextID() {
+		return nextID;
+	}
+	
+	/**
+	 * 생성된 person 객체가 정상적인 객체인지 확인하는 메서드입니다.
+	 * 객체가 정상이면 true, 정상이 아니면 false를 리턴합니다.
+	 * @return true or false
+	 */
+	public static boolean checkPerson() {
+		if(ID > -1 && ID < nextID)
+			return true;
+		else
+			return false;
 	}
 	
 }
