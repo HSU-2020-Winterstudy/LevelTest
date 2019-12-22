@@ -5,7 +5,7 @@ package person;
  * Author: pllapallpal
  * Created date: 2019-12-21
  */
-public class Student extends Person {
+public class Student extends Person implements PartTimeJob {
 
     // variables ID and nextID are hiding the member variables ID and nextID of Student's superclass
     private int ID;
@@ -47,9 +47,13 @@ public class Student extends Person {
 
     }
 
-
     @Override
     public void eat() {
+
+    }
+
+    @Override
+    public void workPartTime() {
 
     }
 
