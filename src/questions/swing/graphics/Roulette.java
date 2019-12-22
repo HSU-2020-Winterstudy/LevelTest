@@ -9,7 +9,7 @@ public class Roulette {
     private JFrame mainFrame;
     private JPanel contentPanel;
     private LabelTextFieldPanel labelTextFieldPanel;
-
+    private ButtonPanel buttonPanel;
 
     GridBagConstraints gbc = new GridBagConstraints();
 
@@ -19,6 +19,7 @@ public class Roulette {
         contentPanel.setBorder(new EmptyBorder(10,10,10,10));
 
         contentPanel.add(labelTextFieldPanel.getContentPanel(),BorderLayout.CENTER);
+        contentPanel.add(buttonPanel.getContentPanel(),BorderLayout.EAST);
 
         mainFrame.add(contentPanel);
         mainFrame.setSize(640,360);
@@ -28,7 +29,9 @@ public class Roulette {
     }
     private void initialize(){
         mainFrame = new JFrame();
+        mainFrame.setTitle("Q15");
         contentPanel = new JPanel();
         labelTextFieldPanel = new LabelTextFieldPanel();
+        buttonPanel = new ButtonPanel();
     }
 }
