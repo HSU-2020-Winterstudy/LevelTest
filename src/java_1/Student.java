@@ -1,0 +1,28 @@
+package java_1;
+
+/**
+ * Person 클래스를 상속받는 Student 클래스입니다.
+ * Author : Cwhist
+ * Created : 2019-12-22
+ */
+public class Student extends Person {
+	private int ID;
+
+	/**
+	 * Person의 생성자를 오버라이드한 Student의 생성자 메서드입니다.
+	 * ID(학번)를 19로 시작하는 7자리 정수로 초기화 시킵니다.
+	 */
+	public Student(String name, String gender) {
+		super(name, gender);
+		this.ID = super.getID() + 1900000;
+	}
+	
+	/**
+	 * Person의 getID 메서드를 오버라이드한 메서드입니다. 학번을 리턴시켜줍니다.
+	 * @return ID in Student
+	 */
+	public int getID() {
+		return this.ID;
+	}
+
+}
