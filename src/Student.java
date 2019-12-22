@@ -3,7 +3,7 @@
  * Created date : 2019-12-22
  */
 
-public class Student extends Person {
+public class Student extends Person implements PartTimeJob{
     private int studentId;
     private static int nextID;
 
@@ -40,6 +40,11 @@ public class Student extends Person {
 
     @Override
     public void eat() {
+
+    }
+
+    @Override
+    public void workPartTime() {
 
     }
 }
