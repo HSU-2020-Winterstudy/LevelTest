@@ -8,16 +8,17 @@ public abstract class Person implements Serializable {
     private static int nextID = 1;
     private int ID;
     private String name;
-    private String sex;
+    private enum sexType{
+        MALE,FEMALE;
+    }
 
     /**
-     *
      * @param ID Person's identify number
      * @return If Person's ID is equal nextID return true,
-     *         else return false and Person's ID = -1
+     * else return false and Person's ID = -1
      */
-    public static boolean checkIDIsEqual(int ID){
-        if(ID != nextID){
+    public static boolean checkIDIsEqual(int ID) {
+        if (ID != nextID) {
             return false;
         }
         nextID++;
@@ -25,23 +26,23 @@ public abstract class Person implements Serializable {
     }
 
     /**
-     *
      * @return NextID and Increase
      */
-    public static int getNextID(){
+    public static int getNextID() {
         return nextID;
     }
+
     /**
-     *
      * @param person Person object
      * @return If Person's ID is between -1 and NextID return true (this object is safe)
      */
-    public static boolean checkIsOk(Person person){
-        if(-1 < person.getID() && person.getID() < nextID){
+    public static boolean checkIsOk(Person person) {
+        if (-1 < person.getID() && person.getID() < nextID) {
             return true;
         }
         return false;
     }
+
     /**
      * @param ID   = Person's identify number
      * @param name = Person's name
@@ -76,9 +77,11 @@ public abstract class Person implements Serializable {
     public int getID() {
         return ID;
     }
-    public void setID(int ID){
+
+    public void setID(int ID) {
         this.ID = ID;
     }
+
     /**
      * @return Person's name
      */
@@ -140,6 +143,6 @@ public abstract class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Name "+name+" ID "+ID+" Sex "+sex;
+        return "Name " + name + " ID " + ID + " Sex " + sex;
     }
 }
