@@ -53,6 +53,6 @@ public class PartTimer extends Person implements PartTimeJob{
 
     @Override
     public String toString() {
-        return String.format("PartTimer{name = %s, id = %d, sex = %s}", getName(),getID(),getSex());
+        return String.format("PartTimer name %s id %d sex %s", getName(),getID(),getSex());
     }
 }
