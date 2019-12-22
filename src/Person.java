@@ -3,7 +3,7 @@
  * Created date : 2019-12-22
  */
 
-public class Person {
+public abstract class Person {
     private int id = -1;
     private String name;
     private String gender;
@@ -54,10 +54,14 @@ public class Person {
     
     /*
      * @return Person is correct*/
-    public static boolean isCorrect() {
-        if (this.id > -1 && this.id < nextID)
+    public static boolean isCorrect(Person person) {
+        if (person.id > -1 && person.id < nextID)
             return true;
         else
             return false;
     }
+
+    public abstract void work();
+
+    public abstract void eat();
 }
