@@ -5,12 +5,13 @@ import java.io.Serializable;
 import java.util.Random;
 
 public abstract class Person implements Serializable {
+    enum sexType{
+        MALE,FEMALE;
+    }
     private static int nextID = 1;
     private int ID;
     private String name;
-    private enum sexType{
-        MALE,FEMALE;
-    }
+    private sexType sex;
 
     /**
      * @param ID Person's identify number
@@ -48,7 +49,7 @@ public abstract class Person implements Serializable {
      * @param name = Person's name
      * @param sex  = Person's sex (man or woman)
      */
-    public Person(int ID, String name, String sex) {
+    public Person(int ID, String name, sexType sex) {
         if (checkIDIsEqual(ID)) {
             this.ID = ID;
         } else {
@@ -64,7 +65,7 @@ public abstract class Person implements Serializable {
      * @param name = Person's name
      * @param sex  = Person's sex (man or woman)
      */
-    public Person(String name, String sex) {
+    public Person(String name, sexType sex) {
         this.ID = getNextID();
         nextID++;
         this.name = name;
@@ -99,11 +100,11 @@ public abstract class Person implements Serializable {
     /**
      * @return Person's sex (man or woman)
      */
-    public String getSex() {
+    public sexType getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(sexType sex) {
         this.sex = sex;
     }
 
@@ -119,11 +120,6 @@ public abstract class Person implements Serializable {
         Random random = new Random(System.currentTimeMillis());
         int randomSex = random.nextInt(2);
 
-        if (randomSex == 1) {
-            sex = "men";
-        } else {
-            sex = "woman";
-        }
         Person person = null;
         try {
             Class<?> classInfo = Person.class;
@@ -132,7 +128,13 @@ public abstract class Person implements Serializable {
             hashCode = Integer.toHexString(person.hashCode()).toUpperCase();
 
             person.setName(className + "-" + hashCode);
-            person.setSex(sex);
+            if(randomSex == 1){
+                person.setSex(sexType.MALE);
+            }
+            else{
+                person.setSex(sexType.FEMALE);
+            }
+
 
         } catch (IllegalAccessException | InstantiationException e1) {
             e1.printStackTrace();

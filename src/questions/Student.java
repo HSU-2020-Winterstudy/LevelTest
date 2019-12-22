@@ -1,17 +1,13 @@
 package questions;
 
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Student extends Person implements PartTimeJob{
-    public Student(int ID, String name, String sex) {
+    public Student(int ID, String name, sexType sex) {
         super(ID, name, sex);
     }
-    public Student(String name, String sex){
+    public Student(String name, sexType sex){
         super(name, sex);
     }
 
@@ -39,14 +35,14 @@ public class Student extends Person implements PartTimeJob{
         String sex;
         Random random = new Random(System.currentTimeMillis());
         int randomSex = random.nextInt(2);
-
+        Student student;
         if(randomSex != 1){
-            sex = "men";
+            student = new Student("", sexType.MALE);
         }
         else {
-            sex = "woman";
+            student = new Student("", sexType.FEMALE);
         }
-        Student student = new Student("",sex);
+
         Class<?> classInfo = Student.class;
         className = classInfo.getName();
         hashCode = Integer.toHexString(student.hashCode()).toUpperCase();

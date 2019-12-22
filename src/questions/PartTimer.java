@@ -3,11 +3,11 @@ package questions;
 import java.util.Random;
 
 public class PartTimer extends Person implements PartTimeJob{
-    public PartTimer(int ID, String name, String sex) {
+    public PartTimer(int ID, String name, sexType sex) {
         super(ID, name, sex);
     }
 
-    public PartTimer(String name, String sex) {
+    public PartTimer(String name, sexType sex) {
         super(name, sex);
     }
 
@@ -36,14 +36,13 @@ public class PartTimer extends Person implements PartTimeJob{
         String sex;
         Random random = new Random(System.currentTimeMillis());
         int randomSex = random.nextInt(3);
-
+        PartTimer partTimer;
         if(randomSex == 1){
-            sex = "men";
+            partTimer = new PartTimer("", sexType.FEMALE);
         }
         else {
-            sex = "woman";
+            partTimer = new PartTimer("",sexType.MALE);
         }
-        PartTimer partTimer = new PartTimer("",sex);
         Class<?> classInfo = PartTimer.class;
         className = classInfo.getName();
         hashCode = Integer.toHexString(partTimer.hashCode()).toUpperCase();
