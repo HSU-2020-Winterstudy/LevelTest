@@ -29,7 +29,17 @@ public class Student extends Person {
     /*
      * @return Student's id */
     @Override
-    public int getID() {
+    public int getId() {
         return this.studentId;
+    }
+
+    @Override
+    public void work() {
+
+    }
+
+    @Override
+    public void eat() {
+
     }
 }
