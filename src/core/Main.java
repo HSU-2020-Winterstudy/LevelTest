@@ -5,19 +5,18 @@ import questions.*;
 
 public class Main {
     public static void main(String[] args) {
-        FileManager<PartTimer> studentFileManager = new FileManager<>();
-        NewDynamic<PartTimer> students = new NewDynamic<>();
+        FileManager<Student> studentFileManager = new FileManager<>();
 
+        NewDynamic<Student> students = new NewDynamic<>();
+        NewDynamic<Student> test = new NewDynamic<>();
 
-        for(int i=0;i<500;i++){
-            students.put(PartTimer.autoGenerator());
+        for(int i=0;i<100;i++){
+            students.put(Student.autoGenerator());
         }
         studentFileManager.fileWriter(students);
-
-        NewDynamic<PartTimer> readStudents = new NewDynamic<>();
-        readStudents = studentFileManager.fileReader();
-        for(int i=0;i<readStudents.size();i++){
-            System.out.println(readStudents.get(i).toString());
+        test = studentFileManager.fileReader();
+        for(int i=0;i<test.size();i++){
+            System.out.println(test.get(i).toString());
         }
     }
 }
