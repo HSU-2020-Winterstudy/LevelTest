@@ -5,7 +5,7 @@ package java_1;
  * Author : Cwhist
  * Created : 2019-12-22
  */
-public class Student extends Person {
+public class Student extends Person implements PartTimeJob {
 	private int ID;
 
 	/**
@@ -26,18 +26,26 @@ public class Student extends Person {
 	}
 	
 	/**
-	 * Person의 추상메서드 work()을 오버라이드한 메서드입니다.
+	 * 추상 클래스 Person의 추상메서드 work()을 오버라이드한 메서드입니다.
 	 */
 	@Override
 	public void work() {
-		
+
 	}
 
 	/**
-	 * Person의 추상메서드 eat()을 오버라이드한 메서드입니다.
+	 * 추상 클래스 Person의 추상메서드 eat()을 오버라이드한 메서드입니다.
 	 */
 	@Override
 	public void eat() {
+		
+	}
+	
+	/**
+	 * 인터페이스 PartTimeJob의 메서드를 오버라이드한 메서드입니다.
+	 */
+	@Override
+	public void workPartTime() {
 		
 	}
 
