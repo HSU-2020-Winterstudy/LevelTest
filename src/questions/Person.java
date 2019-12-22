@@ -1,9 +1,10 @@
 package questions;
 
 
+import java.io.Serializable;
 import java.util.Random;
 
-public abstract class Person {
+public abstract class Person implements Serializable {
     private static int nextID = 1;
     private int ID;
     private String name;

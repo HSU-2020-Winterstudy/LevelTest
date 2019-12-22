@@ -40,7 +40,7 @@ public class Student extends Person implements PartTimeJob{
         Random random = new Random(System.currentTimeMillis());
         int randomSex = random.nextInt(2);
 
-        if(randomSex == 1){
+        if(randomSex != 1){
             sex = "men";
         }
         else {
@@ -57,15 +57,6 @@ public class Student extends Person implements PartTimeJob{
 
     @Override
     public String toString() {
-        Class<?> classInfo = Student.class;
-        Method[] methods = classInfo.getDeclaredMethods();
-        Field[] fields = new Field[100];
-        int count = 0;
-        for(Field field : this.getClass().getDeclaredFields()){
-            field.setAccessible(true);
-            fields[count] = field;
-        }
-//        return "Student Name : "+getName()+" ID : "+getID()+" Sex : "+getSex()+" ClassName : "+ Arrays.toString(methods) + Arrays.toString(fields);
-        return Arrays.toString(methods)+Arrays.toString(fields);
+        return String.format("Student{name = %s, id = %d, sex = %s}", getName(),getID(),getSex());
     }
 }

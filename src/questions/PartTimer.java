@@ -51,4 +51,9 @@ public class PartTimer extends Person implements PartTimeJob{
         partTimer.setName(className+"-"+hashCode);
         return partTimer;
     }
+
+    @Override
+    public String toString() {
+        return String.format("PartTimer{name = %s, id = %d, sex = %s}", getName(),getID(),getSex());
+    }
 }
