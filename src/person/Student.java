@@ -22,6 +22,13 @@ public class Student extends Person implements PartTimeJob {
 		return studentID;
 	}
 	
+	public void setName() {
+		String[] splitName = name.split("-");
+		String newName = splitName[0] + "-A" + splitName[1].substring(1);
+		
+		name = newName;
+	}
+	
 	/**
 	  * @return random Student class;
 	  */

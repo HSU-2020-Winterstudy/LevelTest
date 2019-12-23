@@ -6,7 +6,7 @@ package person;
 
 public abstract class Person {
 	private int ID;
-	private String name;
+	protected String name;
 	private String gender;
 	private static int nextID = 0;
 
