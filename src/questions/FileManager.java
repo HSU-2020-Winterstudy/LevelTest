@@ -6,9 +6,9 @@ import java.util.StringTokenizer;
 
 public class FileManager {
 
-    private static String studentFilePath = "studentList.txt";
-    private static String partTimerFilePath = "partTimerList.txt";
-    private boolean isStudent = true;
+    private static String targetFilePath = "targetPerson.txt";
+    private static String luckyFilePath = "luckyMan.txt";
+    private boolean isTarget = true;
 
 
     public void fileWriter(NewDynamic<?> datas) {
@@ -20,18 +20,16 @@ public class FileManager {
             while(stringTokenizer.hasMoreTokens()){
                 nameList.add(stringTokenizer.nextToken());
             }
-            if(nameList.contains("Student")){
-                isStudent = true;
+            if(nameList.contains("Student") || nameList.contains("PartTimer")){
+                isTarget = true;
             }
             else{
-                isStudent = false;
+                isTarget = false;
             }
-            System.out.println(isStudent);
         }
         else{
             return;
         }
-
 
         try {
             StringBuilder stringBuilder = new StringBuilder();
@@ -40,11 +38,11 @@ public class FileManager {
                 stringBuilder.append("\r\n");
             }
             BufferedWriter bufferedWriter;
-            if(isStudent){
-                bufferedWriter  = new BufferedWriter(new FileWriter(studentFilePath));
+            if(isTarget){
+                bufferedWriter  = new BufferedWriter(new FileWriter(targetFilePath));
             }
             else{
-                bufferedWriter = new BufferedWriter(new FileWriter(partTimerFilePath));
+                bufferedWriter = new BufferedWriter(new FileWriter(luckyFilePath));
             }
 
             bufferedWriter.write(stringBuilder.toString());
@@ -60,16 +58,8 @@ public class FileManager {
     public NewDynamic<Person> fileReader() {
         NewDynamic<Person> personList = new NewDynamic<>();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(studentFilePath));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(targetFilePath));
             String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (line.charAt(0) == 'S') {
-                    personList.put(makeStudent(line));
-                } else {
-                    personList.put(makePartTimer(line));
-                }
-            }
-            bufferedReader = new BufferedReader(new FileReader(partTimerFilePath));
             while ((line = bufferedReader.readLine()) != null) {
                 if (line.charAt(0) == 'S') {
                     personList.put(makeStudent(line));
