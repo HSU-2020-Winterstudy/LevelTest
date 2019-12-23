@@ -11,6 +11,8 @@ public class Main {
 
 	/**
 	 * test용 main 메서드입니다.
+	 * 6번에서 만든 generator() 메서드로 객체를 생성하고 테스트를 실시합니다.
+	 * 출력결과가 보기좋도록 약간의 문자열을 추가하였습니다.
 	 */
 	public static void main(String[] args) {
 		Student student1 = null;
@@ -86,20 +88,49 @@ public class Main {
 		arr.add(partTimer3);
 		
 		for(int i=0; i<arr.size(); i++) {
-			System.out.print(i + " ");
+			System.out.print("(arr)for " + i + " ");
 			arr.get(i).workPartTime();
 		}
 		int i=0;
 		while(i < arr.size()) {
-			System.out.print(i + " ");
+			System.out.print("(arr)while " + i + " ");
 			arr.get(i).workPartTime();
 			i++;
 		}
 		
 		i=0;
-		for(PartTimeJob num : arr) {
-			System.out.print(i++ + " ");
-			num.workPartTime();
+		for(PartTimeJob data : arr) {
+			System.out.print("(arr)for-each " + i + " ");
+			data.workPartTime();
+			i++;
+		}
+		
+		NewArrayList<PartTimeJob> newArr = new NewArrayList<PartTimeJob>();
+		newArr.add(student1);
+		newArr.add(student2);
+		newArr.add(student3);
+		newArr.add(partTimer1);
+		newArr.add(partTimer2);
+		newArr.add(partTimer3);
+		
+		for(i=0; i<newArr.size(); i++) {
+			System.out.print("(newArr)for " + i + " ");
+			newArr.get(i).workPartTime();
+		}
+		
+		i=0;
+		while(i < newArr.size()) {
+			System.out.print("(newArr)while " + i + " ");
+			arr.get(i).workPartTime();
+			i++;
+		}
+		
+		i=0;
+		for(PartTimeJob data : newArr.getData()) {
+			System.out.print("(newArr)for-each " + i + " ");
+			data.workPartTime();
+			i++;
+			if(i >= newArr.size()) break;
 		}
 		
 	}
