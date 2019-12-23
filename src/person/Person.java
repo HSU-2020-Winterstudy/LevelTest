@@ -44,6 +44,10 @@ public abstract class Person {
         this.gender = gender;
     }
 
+    public abstract void work();
+
+    public abstract void eat();
+
     /**
      *
      * @return auto-generated Person object
@@ -93,10 +97,6 @@ public abstract class Person {
     public static boolean isCorrect(Person person) {
         return (person.ID > -1 && person.ID < nextID);
     }
-
-    public abstract void work();
-
-    public abstract void eat();
 
     /**
      *
