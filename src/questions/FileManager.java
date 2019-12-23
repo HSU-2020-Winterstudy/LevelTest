@@ -13,21 +13,19 @@ public class FileManager {
 
     public void fileWriter(NewDynamic<?> datas) {
         Class<?> classInfo;
-        if(datas!=null){
+        if (datas != null) {
             classInfo = datas.get(0).getClass();
-            StringTokenizer stringTokenizer = new StringTokenizer(classInfo.getName(),".");
+            StringTokenizer stringTokenizer = new StringTokenizer(classInfo.getName(), ".");
             ArrayList<String> nameList = new ArrayList<>();
-            while(stringTokenizer.hasMoreTokens()){
+            while (stringTokenizer.hasMoreTokens()) {
                 nameList.add(stringTokenizer.nextToken());
             }
-            if(nameList.contains("Student") || nameList.contains("PartTimer")){
+            if (nameList.contains("Student") || nameList.contains("PartTimer")) {
                 isTarget = true;
-            }
-            else{
+            } else {
                 isTarget = false;
             }
-        }
-        else{
+        } else {
             return;
         }
 
@@ -38,12 +36,33 @@ public class FileManager {
                 stringBuilder.append("\r\n");
             }
             BufferedWriter bufferedWriter;
-            if(isTarget){
-                bufferedWriter  = new BufferedWriter(new FileWriter(targetFilePath));
-            }
-            else{
+            if (isTarget) {
+                bufferedWriter = new BufferedWriter(new FileWriter(targetFilePath));
+            } else {
+                System.out.println("iswork");
                 bufferedWriter = new BufferedWriter(new FileWriter(luckyFilePath));
             }
+
+            bufferedWriter.write(stringBuilder.toString());
+            bufferedWriter.flush();
+            bufferedWriter.close();
+
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    public void fileWriter(String filePath, NewDynamic<?> datas) {
+        try {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < datas.size(); i++) {
+                stringBuilder.append(datas.get(i).toString());
+                stringBuilder.append("\r\n");
+            }
+            BufferedWriter bufferedWriter;
+
+            System.out.println("iswork");
+            bufferedWriter = new BufferedWriter(new FileWriter(filePath));
 
             bufferedWriter.write(stringBuilder.toString());
             bufferedWriter.flush();
@@ -75,6 +94,7 @@ public class FileManager {
         }
         return personList;
     }
+
     public Student makeStudent(String line) {
         Student result;
         StringTokenizer stringTokenizer = new StringTokenizer(line, " ");

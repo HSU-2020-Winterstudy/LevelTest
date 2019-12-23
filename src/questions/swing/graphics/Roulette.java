@@ -12,8 +12,6 @@ public class Roulette {
     private LabelTextFieldPanel labelTextFieldPanel;
     private ButtonPanel buttonPanel;
 
-    GridBagConstraints gbc = new GridBagConstraints();
-
     public Roulette(){
         initialize();
         setMenuBar();

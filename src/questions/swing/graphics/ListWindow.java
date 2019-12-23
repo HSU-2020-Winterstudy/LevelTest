@@ -20,7 +20,6 @@ public class ListWindow {
         exitButton.addActionListener(event -> mainFrame.setVisible(false));
 
         mainFrame.add(contentPanel);
-//        mainFrame.setSize(200,400);
         mainFrame.pack();
         mainFrame.setResizable(false);
         mainFrame.setVisible(true);

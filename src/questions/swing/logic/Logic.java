@@ -66,7 +66,7 @@ public class Logic {
         botLabelSetText.accept(personList.get(randomIndex).getName());
     }
     public void saveLuckyList(){
-        fileManager.fileWriter(luckyPeople);
+        fileManager.fileWriter("luckyMan.txt",luckyPeople);
     }
     public JTextArea display(){
         JTextArea displayTA = new JTextArea();
