@@ -49,9 +49,6 @@ public class PartTimer extends Person implements PartTimeJob {
 
     @Override
     public String toString() {
-        return "PartTimer {" +
-                " ID = " + this.getID() +
-                ", name = " + this.getName() +
-                ", gender = " + this.getGender() + " }";
+        return this.getID() + "," + this.getName() + "," + this.getGender();
     }
 }
