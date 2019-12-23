@@ -1,7 +1,8 @@
 package questions.swing.graphics;
 
+import questions.swing.logic.Logic;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
@@ -33,5 +34,9 @@ public class Roulette {
         contentPanel = new JPanel();
         labelTextFieldPanel = new LabelTextFieldPanel();
         buttonPanel = new ButtonPanel();
+
+        Logic.getInstance().addTopLabelSetText(labelTextFieldPanel.topLabelSetText());
+        Logic.getInstance().addMidLabelSetText(labelTextFieldPanel.midLabelSetText());
+        Logic.getInstance().addBotLabelSetText(labelTextFieldPanel.botLabelSetText());
     }
 }

@@ -1,8 +1,11 @@
 package questions.swing.graphics;
 
+import questions.swing.logic.Logic;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.util.function.Consumer;
 
 public class LabelTextFieldPanel {
     private JPanel contentPanel;
@@ -45,6 +48,15 @@ public class LabelTextFieldPanel {
 
         contentPanel.add(labels, BorderLayout.CENTER);
         contentPanel.add(inputTF, BorderLayout.SOUTH);
+    }
+    public Consumer<String> topLabelSetText(){
+        return string -> topNameLabel.setText(string);
+    }
+    public Consumer<String> midLabelSetText(){
+        return string -> midNameLabel.setText(string);
+    }
+    public Consumer<String> botLabelSetText(){
+        return string -> botNameLabel.setText(string);
     }
 
     private void initialize() {
