@@ -8,7 +8,7 @@ public class PartTimer extends Person implements PartTimeJob {
      * @param name
      * @param gender
      */
-    public PartTimer(int ID, String name, String gender) {
+    public PartTimer(int ID, String name, boolean gender) {
 
         super(ID, name, gender);
     }
@@ -18,7 +18,7 @@ public class PartTimer extends Person implements PartTimeJob {
      * @param name
      * @param gender
      */
-    public PartTimer(String name, String gender) {
+    public PartTimer(String name, boolean gender) {
 
         super(name, gender);
     }

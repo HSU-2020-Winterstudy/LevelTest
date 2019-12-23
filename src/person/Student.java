@@ -17,7 +17,7 @@ public class Student extends Person implements PartTimeJob {
      * @param name
      * @param gender
      */
-    public Student(int ID, String name, String gender) {
+    public Student(int ID, String name, boolean gender) {
 
         super(name, gender);
 
@@ -35,7 +35,7 @@ public class Student extends Person implements PartTimeJob {
      * @param name
      * @param gender
      */
-    public Student(String name, String gender) {
+    public Student(String name, boolean gender) {
 
         super(name, gender);
 
