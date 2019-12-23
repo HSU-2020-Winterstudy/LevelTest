@@ -4,7 +4,7 @@
  */
 package person;
 
-public class Person {
+public abstract class Person {
 	private int ID;
 	private String name;
 	private String gender;
@@ -36,6 +36,10 @@ public class Person {
 	public static boolean isNormal(Person person) {
 		return ((person.ID > -1) && (person.ID < nextID));
 	}
+	
+	public abstract void work();
+	
+	public abstract void eat();
 	
 	/**
 	  * @return ID in person
