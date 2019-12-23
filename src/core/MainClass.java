@@ -1,25 +1,25 @@
 package core;
 
+import person.PartTimer;
 import person.Student;
 
 public class MainClass {
 
     public static void main(String[] args) {
 
-        Student[] students = new Student[100];
+        PartTimer[] partTimers = new PartTimer[100];
         for (int i = 0; i < 100; ++i) {
-            students[i] = Student.generateStudent();
-            StringBuilder newName = new StringBuilder(students[i].getName());
+            partTimers[i] = PartTimer.generatePartTimer();
+            StringBuilder newName = new StringBuilder(partTimers[i].getName());
             newName.setCharAt(8, 'A');
-            students[i].setName(newName.toString());
-            System.out.println(students[i].getName());
+            partTimers[i].setName(newName.toString());
+            System.out.println(partTimers[i].getName());
         }
 
         StringBuilder thirdChar = new StringBuilder();
-        for (Student student : students) {
-            thirdChar.append(student.getName().charAt(10));
-            System.out.println(student.toString());
+        for (PartTimer partTimer : partTimers) {
+            thirdChar.append(partTimer.getName().charAt(10));
+            System.out.println(partTimer.toString());
         }
-
     }
 }
