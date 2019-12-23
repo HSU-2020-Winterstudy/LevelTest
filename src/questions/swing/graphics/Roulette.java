@@ -16,6 +16,7 @@ public class Roulette {
 
     public Roulette(){
         initialize();
+        setMenuBar();
         contentPanel.setLayout(new BorderLayout(10,0));
         contentPanel.setBorder(new EmptyBorder(10,10,10,10));
 
@@ -38,5 +39,16 @@ public class Roulette {
         Logic.getInstance().addTopLabelSetText(labelTextFieldPanel.topLabelSetText());
         Logic.getInstance().addMidLabelSetText(labelTextFieldPanel.midLabelSetText());
         Logic.getInstance().addBotLabelSetText(labelTextFieldPanel.botLabelSetText());
+    }
+    private void setMenuBar(){
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("List");
+        JMenuItem display = new JMenuItem("Display");
+
+        display.addActionListener(event -> new ListWindow());
+
+        menu.add(display);
+        menuBar.add(menu);
+        mainFrame.setJMenuBar(menuBar);
     }
 }

@@ -5,12 +5,13 @@ import questions.NewDynamic;
 import questions.Person;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.function.Consumer;
 
 public class Logic {
     private static Logic instance;
     private NewDynamic<Person> personList;
-    private NewDynamic<Person> luckyPerson;
+    private NewDynamic<Person> luckyPeople;
     private FileManager fileManager = new FileManager();
     private Consumer<String> topLabelSetText;
     private Consumer<String> midLabelSetText;
@@ -31,7 +32,7 @@ public class Logic {
     private void initialize() {
         FileManager fileManager = new FileManager();
         personList = fileManager.fileReader();
-        luckyPerson = new NewDynamic<>();
+        luckyPeople = new NewDynamic<>();
     }
 
     public void addTopLabelSetText(Consumer<String> setText) {
@@ -46,7 +47,7 @@ public class Logic {
 
     public void getLucky() {
         int luckyIndex = (int) (Math.random() * personList.size());
-        luckyPerson.put(personList.get(luckyIndex));
+        luckyPeople.put(personList.get(luckyIndex));
         luckyInfo[0] = personList.get(luckyIndex).getName();
         luckyInfo[1] = personList.get(luckyIndex).toString();
         midLabelSetText.accept(luckyInfo[0]);
@@ -65,6 +66,15 @@ public class Logic {
         botLabelSetText.accept(personList.get(randomIndex).getName());
     }
     public void saveLuckyList(){
-        fileManager.fileWriter(luckyPerson);
+        fileManager.fileWriter(luckyPeople);
+    }
+    public JTextArea display(){
+        JTextArea displayTA = new JTextArea();
+        if(luckyPeople != null){
+            for(int i=0;i<luckyPeople.size();i++){
+                displayTA.append(luckyPeople.get(i).toString()+"\n");
+            }
+        }
+        return displayTA;
     }
 }
