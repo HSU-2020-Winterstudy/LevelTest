@@ -47,5 +47,17 @@ public class Student extends Person implements PartTimeJob {
 	public void workPartTime() {
 		System.out.println("working...(partTime)");
 	}
+	
+	public static void generator(Student data) {
+		String gender;
+		if(Math.random()*2 == 0)
+			gender = "남자";
+		else
+			gender = "여자";
+		
+		data = new Student(" ", gender);
+		data.setName( "Student-" + Integer.toHexString(data.hashCode()).toUpperCase());
+		System.out.println(data.getName() + ", " + data.getGender() + ", " + data.getID());
+	}
 
 }

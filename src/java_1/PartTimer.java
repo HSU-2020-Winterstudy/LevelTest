@@ -41,4 +41,20 @@ public class PartTimer extends Person implements PartTimeJob {
 	public void workPartTime() {
 		System.out.println("working...(partTime)");
 	}
+	
+	/**
+	 * PartTimer의 무작위 생성 메서드입니다.
+	 * 레퍼런스 변수 PartTimer를 받아 무작위 값으로 객체를 생성시켜줍니다.
+ 	 */
+	public static void generator(PartTimer data) {
+		String gender;
+		if((int)(Math.random()*2) == 0)
+			gender = "남자";
+		else
+			gender = "여자";
+		
+		data = new PartTimer(" ", gender);
+		data.setName( "PartTimer-" + Integer.toHexString(data.hashCode()).toUpperCase());
+		System.out.println(data.getName() + ", " + data.getGender() + ", " + data.getID());
+	}
 }
