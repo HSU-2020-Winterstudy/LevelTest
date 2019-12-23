@@ -4,29 +4,30 @@ package java_1;
  * 가변길이 배열 NewArrayList입니다.
  * 배열의 초기 크기 maxSize는 5부터 시작합니다.
  * 배열의 값이 더 들어갈 수 없으면 배열을 2배 확장시켜주는 expend() 메서드를 실행합니다.
+ * get()메서드를 통해 리턴하는 값을 T 타입으로 리턴합니다.
  * Author : Cwhist
  * Created : 2019-12-23
  */
 public class NewArrayList<T> {
 	private int size;
 	private int maxSize;
-	private PartTimeJob[] data;
+	private Object[] data;
 	
 	public NewArrayList() {
 		maxSize = 5;
-		data = new PartTimeJob[maxSize];
+		data = new Object[maxSize];
 		size = 0;
 	}
 	
-	public void add(PartTimeJob data) {
+	public void add(T data) {
 		if(size >= maxSize)
 			expend();
 		this.data[size] = data;
 		size++;
 	}
 	
-	public PartTimeJob get(int index) {
-		return data[index];
+	public T get(int index) {
+		return (T)data[index];
 	}
 	
 	public void remove(int index) {
@@ -42,7 +43,7 @@ public class NewArrayList<T> {
 	}
 	
 	public void expend() {
-		PartTimeJob[] temp = new PartTimeJob[maxSize*2];
+		Object[] temp = new Object[maxSize*2];
 		for(int i=0; i<maxSize; i++) {
 			temp[i] = data[i];
 		}
@@ -50,7 +51,7 @@ public class NewArrayList<T> {
 		maxSize *= 2;
 	}
 	
-	public PartTimeJob[] getData() {
+	public Object[] getData() {
 		return data;
 	}
 	
