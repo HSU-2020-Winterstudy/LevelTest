@@ -4,67 +4,68 @@
  */
 package person;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public abstract class Person {
 	private int ID;
 	private String name;
 	private String gender;
 	private static int nextID;
-	
-	//constructor 1
+
+	// constructor 1
 	public Person(int ID, String name, String gender) {
-		if(ID != nextID) {
+		if (ID != nextID) {
 			this.ID = -1;
-		}
-		else {
+		} else {
 			this.ID = ID;
 		}
-		
+
 		this.name = name;
 		this.gender = gender;
 	}
-	
-	//constructor 2
+
+	// constructor 2
 	public Person(String name, String gender) {
 		this.ID = nextID++;
 		this.name = name;
 		this.gender = gender;
 	}
-	
+
 	/**
-	  * @return ID is normal
-	  */
+	 * @return ID is normal
+	 */
 	public static boolean isNormal(Person person) {
 		return ((person.ID > -1) && (person.ID < nextID));
 	}
-	
+
 	public abstract void work();
-	
+
 	public abstract void eat();
-	
+
 	/**
-	  * @return ID in person
-	  */
+	 * @return ID in person
+	 */
 	public int getID() {
 		return ID;
 	}
 
 	/**
-	  * @return name in person
-	  */
+	 * @return name in person
+	 */
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
-	  * @return gender in person
-	  */
+	 * @return gender in person
+	 */
 	public String getGender() {
 		return gender;
 	}
-	
+
 	/**
-	  * @return nextID in person
-	  */
+	 * @return nextID in person
+	 */
 	public static int getNextID() {
 		return nextID;
 	}
