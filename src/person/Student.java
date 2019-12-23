@@ -4,7 +4,7 @@
  */
 package person;
 
-public class Student extends Person {
+public class Student extends Person implements PartTimeJob {
 	private int studentID;
 	
 	public Student(int ID, String name, String gender) {
@@ -27,6 +27,11 @@ public class Student extends Person {
 
 	@Override
 	public void eat() {
+		
+	}
+
+	@Override
+	public void workPartTime() {
 		
 	}
 }
