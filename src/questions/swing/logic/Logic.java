@@ -4,6 +4,7 @@ import questions.FileManager;
 import questions.NewDynamic;
 import questions.Person;
 
+import javax.swing.*;
 import java.util.function.Consumer;
 
 public class Logic {
@@ -51,6 +52,7 @@ public class Logic {
         midLabelSetText.accept(luckyInfo[0]);
         getAboveLucky();
         getUnderLucky();
+        JOptionPane.showMessageDialog(null,luckyInfo[1],"You are Lucky!",JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void getAboveLucky() {
