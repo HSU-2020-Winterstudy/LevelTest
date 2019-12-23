@@ -42,16 +42,16 @@ public class Student extends Person implements PartTimeJob {
 
 	@Override
 	public void work() {
-		
+		System.out.println("work-student");
 	}
 
 	@Override
 	public void eat() {
-		
+		System.out.println("eat-student");
 	}
 
 	@Override
 	public void workPartTime() {
-		
+		System.out.println("workparttime-student");
 	}
 }

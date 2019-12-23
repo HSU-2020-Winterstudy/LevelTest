@@ -4,13 +4,11 @@
  */
 package person;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public abstract class Person {
 	private int ID;
 	private String name;
 	private String gender;
-	private static int nextID;
+	private static int nextID = 0;
 
 	// constructor 1
 	public Person(int ID, String name, String gender) {
