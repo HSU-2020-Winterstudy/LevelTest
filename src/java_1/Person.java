@@ -64,8 +64,20 @@ public abstract class Person {
 		return nextID;
 	}
 	
+	/**
+	 * name의 setter 메서드입니다. 이름을 변경합니다.
+	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	/**
+	 * name의 첫글자의 setter 메서드입니다. 첫 글자를 입력받은 문자로 변경합니다.
+	 */
+	public void setFirstName(char character) {
+		StringBuilder oldName = new StringBuilder(this.getName());
+		oldName.setCharAt(0, character);
+		setName(oldName.toString());
 	}
 	
 	/**

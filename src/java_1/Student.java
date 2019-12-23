@@ -61,7 +61,7 @@ public class Student extends Person implements PartTimeJob {
 			gender = "¿©ÀÚ";
 		
 		Student data = new Student(" ", gender);
-		data.setName( "Student-" + Integer.toHexString(data.hashCode()).toUpperCase());
+		data.setName(Integer.toHexString(data.hashCode()).toUpperCase());
 		
 		return data;
 	}
