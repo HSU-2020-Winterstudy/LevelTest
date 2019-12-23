@@ -1,25 +1,24 @@
 package core;
 
+import dynamicarray.MyArray;
 import person.PartTimer;
-import person.Student;
+
+import java.io.IOException;
 
 public class MainClass {
 
     public static void main(String[] args) {
 
-        PartTimer[] partTimers = new PartTimer[100];
+        MyArray<PartTimer> myArray = new MyArray<>();
+
         for (int i = 0; i < 100; ++i) {
-            partTimers[i] = PartTimer.generatePartTimer();
-            StringBuilder newName = new StringBuilder(partTimers[i].getName());
-            newName.setCharAt(8, 'A');
-            partTimers[i].setName(newName.toString());
-            System.out.println(partTimers[i].getName());
+            myArray.add(PartTimer.generatePartTimer());
         }
 
-        StringBuilder thirdChar = new StringBuilder();
-        for (PartTimer partTimer : partTimers) {
-            thirdChar.append(partTimer.getName().charAt(10));
-            System.out.println(partTimer.toString());
+        try {
+            FileIO.writeFile(myArray);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
