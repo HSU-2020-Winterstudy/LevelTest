@@ -48,16 +48,22 @@ public class Student extends Person implements PartTimeJob {
 		System.out.println("working...(partTime)");
 	}
 	
-	public static void generator(Student data) {
+	/**
+	 * Student의 무작위 생성 메서드입니다.
+	 * 무작위 값으로 Student를 생성시키고 리턴시켜줍니다.
+	 * @return Student instance
+	 */
+	public static Student generator() {
 		String gender;
-		if(Math.random()*2 == 0)
+		if((int)(Math.random()*2) == 0)
 			gender = "남자";
 		else
 			gender = "여자";
 		
-		data = new Student(" ", gender);
+		Student data = new Student(" ", gender);
 		data.setName( "Student-" + Integer.toHexString(data.hashCode()).toUpperCase());
-		System.out.println(data.getName() + ", " + data.getGender() + ", " + data.getID());
+		
+		return data;
 	}
 
 }

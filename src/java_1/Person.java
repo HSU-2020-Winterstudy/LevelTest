@@ -89,17 +89,20 @@ public abstract class Person {
 	/**
 	 * Person의 무작위 생성 메서드입니다. 
 	 * Person객체를 생성할 수 없어 업캐스팅을 이용하여 객체를 생성했습니다.
+	 * 생성된 객체를 리턴해줍니다.
+	 * @return PartTimer instance upcating Person
 	 */
-	public static void generator(Person data) {
+	public static Person generator() {
 		String gender;
-		if(Math.random()*2 == 0)
+		if((int)(Math.random()*2) == 0)
 			gender = "남자";
 		else
 			gender = "여자";
 		
-		data = new PartTimer(" ", gender);
+		Person data = new PartTimer(" ", gender);
 		data.setName("Person-" + Integer.toHexString(data.hashCode()).toUpperCase());
-		System.out.println(data.getName() + ", " + data.getGender() + ", " + data.getID());
+		
+		return data;
 	}
 	
 }
