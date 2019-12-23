@@ -74,4 +74,8 @@ public class Student extends Person implements PartTimeJob {
     public int getID() {
         return this.ID;
     }
+
+    public void setName(String name) {
+        super.setName(name);
+    }
 }
