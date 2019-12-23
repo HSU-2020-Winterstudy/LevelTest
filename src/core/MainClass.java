@@ -1,3 +1,5 @@
+package core;
+
 import person.Student;
 
 public class MainClass {
@@ -16,7 +18,8 @@ public class MainClass {
         StringBuilder thirdChar = new StringBuilder();
         for (Student student : students) {
             thirdChar.append(student.getName().charAt(10));
+            System.out.println(student.toString());
         }
-        System.out.println(thirdChar);
+
     }
 }
