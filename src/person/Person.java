@@ -77,7 +77,7 @@ public abstract class Person {
      * @return name set by hashcode
      */
     protected void setName() {
-        this.name = this.getClass().getSuperclass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
+        this.name = getClass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
     }
 
     /**
@@ -112,6 +112,10 @@ public abstract class Person {
      */
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
