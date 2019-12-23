@@ -1,4 +1,5 @@
 import com.sun.xml.internal.ws.wsdl.writer.document.Part;
+import dynamicarray.MyArray;
 import person.PartTimeJob;
 import person.PartTimer;
 import person.Person;
@@ -32,7 +33,7 @@ public class MainClass {
 //        Person person = new Person(" ", true);
 
         // Add instances to the list
-        List<PartTimeJob> partTimeJobs = new ArrayList<>();
+        MyArray<PartTimeJob> partTimeJobs = new MyArray<>();
         for (int i = 0; i < 3; ++i) {
             partTimeJobs.add( (PartTimeJob) students[i] );
         }
@@ -45,13 +46,13 @@ public class MainClass {
             partTimeJobs.get(i).workPartTime();
         }
 
-        // enhanced for loop
-        for (PartTimeJob partTimeJob : partTimeJobs) {
-            partTimeJob.workPartTime();
-        }
+//        // enhanced for loop
+//        for (PartTimeJob partTimeJob : partTimeJobs) {
+//            partTimeJob.workPartTime();
+//        }
 
-        // forEach() method
-        partTimeJobs.forEach(PartTimeJob::workPartTime);
+//        // forEach() method
+//        partTimeJobs.forEach(PartTimeJob::workPartTime);
 
     }
 }
