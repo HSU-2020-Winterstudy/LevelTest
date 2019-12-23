@@ -66,6 +66,15 @@ public class Student extends Person implements PartTimeJob {
         return student;
     }
 
+    @Override
+    public String toString() {
+        return "Student {" +
+                " ID = " + super.getID() +
+                ", studentID = " + this.getID() +
+                ", name = " + this.getName() +
+                ", gender = " + this.getGender() + " }";
+    }
+
     /**
      *
      * @return the ID of the student
