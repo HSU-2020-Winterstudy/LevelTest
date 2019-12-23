@@ -76,7 +76,7 @@ public abstract class Person {
      * in order to use in auto-generated
      * @return name set by hashcode
      */
-    private void setName() {
+    protected void setName() {
         this.name = this.getClass().getSuperclass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
     }
 
@@ -84,7 +84,7 @@ public abstract class Person {
      * in order to use in auto-generated
      * @return gender set randomly
      */
-    private void setGender() {
+    protected void setGender() {
         int genderSetter = (int) (Math.random() * 2);
         this.gender = genderSetter != 0;
     }

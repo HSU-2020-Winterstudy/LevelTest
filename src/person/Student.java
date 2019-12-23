@@ -44,17 +44,26 @@ public class Student extends Person implements PartTimeJob {
 
     @Override
     public void work() {
-
+        System.out.println("student works!");
     }
 
     @Override
     public void eat() {
-
+        System.out.println("student eats!");
     }
 
     @Override
     public void workPartTime() {
+        System.out.println("student does part time job!");
+    }
 
+    public static Student generateStudent() {
+        Student student = new Student(" ", true);
+
+        student.setName();
+        student.setGender();
+
+        return student;
     }
 
     /**
