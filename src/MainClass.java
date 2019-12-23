@@ -1,6 +1,11 @@
+import com.sun.xml.internal.ws.wsdl.writer.document.Part;
+import person.PartTimeJob;
 import person.PartTimer;
 import person.Person;
 import person.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainClass {
 
@@ -25,5 +30,28 @@ public class MainClass {
          * instantiation of Person - error occurs
          */
 //        Person person = new Person(" ", true);
+
+        // Add instances to the list
+        List<PartTimeJob> partTimeJobs = new ArrayList<>();
+        for (int i = 0; i < 3; ++i) {
+            partTimeJobs.add( (PartTimeJob) students[i] );
+        }
+        for (int i = 0; i < 3; ++i) {
+            partTimeJobs.add( (PartTimeJob) partTimers[i] );
+        }
+
+        // for loop
+        for (int i = 0; i < 6; ++i) {
+            partTimeJobs.get(i).workPartTime();
+        }
+
+        // enhanced for loop
+        for (PartTimeJob partTimeJob : partTimeJobs) {
+            partTimeJob.workPartTime();
+        }
+
+        // forEach() method
+        partTimeJobs.forEach(PartTimeJob::workPartTime);
+
     }
 }
