@@ -76,12 +76,12 @@ public abstract class Person {
 
             @Override
             public void work() {
-
+                System.out.println("Person work");
             }
 
             @Override
             public void eat() {
-
+                System.out.println("Person eat");
             }
         };
         person.setHashName();

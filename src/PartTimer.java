@@ -26,35 +26,24 @@ public class PartTimer extends Person implements PartTimeJob {
         else
             gender = "여자";
 
-        partTimer = new PartTimer(" ", gender){
-
-            @Override
-            public void work() {
-
-            }
-
-            @Override
-            public void eat() {
-
-            }
-        };
+        partTimer = new PartTimer(" ", gender);
         partTimer.setHashName();
 
         return partTimer;
     }
 
     @Override
-    public void workPartTime() {
-
-    }
-
-    @Override
     public void work() {
-
+        System.out.println("PartTimer work");
     }
 
     @Override
     public void eat() {
+        System.out.printf("PartTimer eat");
+    }
 
+    @Override
+    public void workPartTime() {
+        System.out.println("PartTimer workPartTime");
     }
 }

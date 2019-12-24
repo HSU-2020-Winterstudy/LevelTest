@@ -41,18 +41,7 @@ public class Student extends Person implements PartTimeJob{
         else
             gender = "여자";
 
-        student = new Student(" ", gender){
-
-            @Override
-            public void work() {
-                
-            }
-
-            @Override
-            public void eat() {
-
-            }
-        };
+        student = new Student(" ", gender);
         student.setHashName();
 
         return student;
@@ -60,16 +49,16 @@ public class Student extends Person implements PartTimeJob{
 
     @Override
     public void work() {
-
+        System.out.println("Student work");
     }
 
     @Override
     public void eat() {
-
+        System.out.println("Student eat");
     }
 
     @Override
     public void workPartTime() {
-
+        System.out.println("Student workPartTime");
     }
 }
