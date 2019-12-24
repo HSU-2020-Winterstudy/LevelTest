@@ -10,6 +10,10 @@ public class ButtonPanel {
     private JButton rouletteButton = new JButton("추첨");
     private JButton saveButton = new JButton("저장");
 
+    /**
+     * rouletteButton is clicked, roulette will be run
+     * saveButton is clicked, luckyPeople in Logic Class( == winners list) save in file (filePath = luckyMan.txt)
+     */
     public ButtonPanel(){
         contentPanel.setLayout(new BorderLayout(0,10));
 

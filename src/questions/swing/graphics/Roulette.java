@@ -12,6 +12,11 @@ public class Roulette {
     private LabelTextFieldPanel labelTextFieldPanel;
     private ButtonPanel buttonPanel;
 
+    /**
+     * If you click rouletteButton("추첨") roulette will start
+     * If you click Labels(display name space) stop roulette and display winner's information
+     * If you click saveButton("저장") luckyPeople in LogicClass(winners list) will save into the file
+     */
     public Roulette(){
         initialize();
         setMenuBar();

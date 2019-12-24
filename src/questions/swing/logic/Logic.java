@@ -11,6 +11,12 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * personList == Target
+ * luckyLabel == name in this Label is winner
+ * luckyPeople == Winners list
+ * generatedPeople == random People who generated in personList
+ */
 public class Logic {
     private static Logic instance;
     private NewDynamic<Person> personList;
@@ -20,7 +26,7 @@ public class Logic {
     private ScheduledFuture<?> dropFuture;
     private boolean isRouletteRunning = false;
     private JLabel luckyLabel;
-    private ArrayList<Person> generatedPerson = new ArrayList<>();
+    private ArrayList<Person> generatedPeople = new ArrayList<>();
     private NewDynamic<Person> luckyPeople;
 
     private Logic() {
@@ -45,11 +51,20 @@ public class Logic {
         dropNameTask.addLabel(labels);
     }
 
+    /**
+     * Generate RandomPerson in personList and Add generatedPerson
+     * @return random Person in personList
+     */
     public String randomPerson() {
         int randomIndex = (int) (Math.random() * personList.size());
-        generatedPerson.add(personList.get(randomIndex));
+        generatedPeople.add(personList.get(randomIndex));
         return personList.get(randomIndex).getName();
     }
+
+    /**
+     * If this method don't running, Start roulette
+     * Name will be dropped top to bot
+     */
     public void roulette(){
         if(!isRouletteRunning){
             service = Executors.newScheduledThreadPool(1);
@@ -57,19 +72,23 @@ public class Logic {
             isRouletteRunning = true;
         }
     }
+
+    /**
+     * If roulette method is running shutdown thread and Add luckyPeople who wined person
+     */
     public void stopRoulette(){
         if(isRouletteRunning){
             dropFuture.cancel(true);
             service.shutdown();
             isRouletteRunning = false;
             int personIndex = getPersonIndex(luckyLabel.getText());
-            luckyPeople.put(generatedPerson.get(personIndex));
-            JOptionPane.showMessageDialog(null, generatedPerson.get(personIndex).toString(), "You are Lucky!", JOptionPane.INFORMATION_MESSAGE);
+            luckyPeople.put(generatedPeople.get(personIndex));
+            JOptionPane.showMessageDialog(null, generatedPeople.get(personIndex).toString(), "You are Lucky!", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     private int getPersonIndex(String name){
-        for(int i=0;i<generatedPerson.size();i++){
-            if(generatedPerson.get(i).getName().equals(name)){
+        for(int i = 0; i< generatedPeople.size(); i++){
+            if(generatedPeople.get(i).getName().equals(name)){
                 return i;
             }
         }

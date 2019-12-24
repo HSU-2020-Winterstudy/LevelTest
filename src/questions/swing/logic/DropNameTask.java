@@ -15,14 +15,23 @@ public class DropNameTask implements Runnable {
         setTopLabel();
     }
 
+    /**
+     * SetText random Person's Name
+     */
     public void setTopLabel() {
         topLabel.setText(Logic.getInstance().randomPerson());
     }
 
+    /**
+     * Get name in topLabel
+     */
     public void setMidLabel() {
         midLabel.setText(topLabel.getText());
     }
 
+    /**
+     * Get name in midLabel
+     */
     public void setBotLabel() {
         botLabel.setText(midLabel.getText());
     }

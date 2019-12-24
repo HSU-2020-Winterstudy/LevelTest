@@ -11,6 +11,9 @@ public class ListWindow {
     private JTextArea displayTA;
     private JButton exitButton = new JButton("Exit");
 
+    /**
+     * Display winner
+     */
     public ListWindow(){
         contentPanel.setLayout(new BorderLayout());
         displayTA = Logic.getInstance().display();

@@ -11,6 +11,12 @@ public class FileManager {
     private boolean isTarget = true;
 
 
+    /**
+     * Find data is TargetList or WinnerList
+     * If data is Target save targetPerson.txt
+     * else save luckyMan.txt
+     * @param datas Want to save data
+     */
     public void fileWriter(NewDynamic<?> datas) {
         Class<?> classInfo;
         if (datas != null) {
@@ -52,6 +58,11 @@ public class FileManager {
         }
     }
 
+    /**
+     *
+     * @param filePath FilePath what you want to save
+     * @param datas Data to save
+     */
     public void fileWriter(String filePath, NewDynamic<?> datas) {
         try {
             StringBuilder stringBuilder = new StringBuilder();
@@ -73,6 +84,10 @@ public class FileManager {
         }
     }
 
+    /**
+     *
+     * @return Read data and make a NewDynamic
+     */
     @SuppressWarnings("unchecked")
     public NewDynamic<Person> fileReader() {
         NewDynamic<Person> personList = new NewDynamic<>();
@@ -95,6 +110,11 @@ public class FileManager {
         return personList;
     }
 
+    /**
+     *
+     * @param line Person's information
+     * @return Make Student object and return
+     */
     public Student makeStudent(String line) {
         Student result;
         StringTokenizer stringTokenizer = new StringTokenizer(line, " ");
@@ -122,6 +142,11 @@ public class FileManager {
         return result;
     }
 
+    /**
+     *
+     * @param line Person's information
+     * @return Make PartTimer object and return
+     */
     public PartTimer makePartTimer(String line) {
         PartTimer result;
         StringTokenizer stringTokenizer = new StringTokenizer(line, " ");

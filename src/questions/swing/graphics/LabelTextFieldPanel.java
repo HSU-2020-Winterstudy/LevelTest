@@ -47,6 +47,9 @@ public class LabelTextFieldPanel {
         labels.add(midNameLabel);
         labels.add(botNameLabel);
 
+        /**
+         * If Labels panel clicked roulette will be stop
+         */
         labels.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

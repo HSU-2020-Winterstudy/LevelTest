@@ -29,6 +29,11 @@ public class Student extends Person implements PartTimeJob{
      * ID's getter in Person class is already return Int
      */
 
+
+    /**
+     * Generate Student object automatically
+     * @return Student object
+     */
     public static Student autoGenerator(){
         String className;
         String hashCode;
