@@ -13,22 +13,20 @@ public class PartTimer extends Person implements PartTimeJob {
 
     /*
      * Second Constructor */
-    public PartTimer(String name, String gender){
+    public PartTimer(String name, String gender) {
         super(name, gender);
     }
 
-    public static PartTimer randomGenerator(){
+    public static PartTimer randomGenerator() {
         PartTimer partTimer;
         String gender;
-        if((int)(Math.random()*2) % 2 == 0){
+        if ((int) (Math.random() * 2) % 2 == 0) {
             gender = "남자";
-        }
-        else
+        } else
             gender = "여자";
 
         partTimer = new PartTimer(" ", gender);
         partTimer.setHashName();
-
         return partTimer;
     }
 
@@ -39,7 +37,7 @@ public class PartTimer extends Person implements PartTimeJob {
 
     @Override
     public void eat() {
-        System.out.printf("PartTimer eat");
+        System.out.println("PartTimer eat");
     }
 
     @Override

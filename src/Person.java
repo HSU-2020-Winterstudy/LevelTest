@@ -48,10 +48,10 @@ public abstract class Person {
 
     /*
      * @return Person's nextID */
-    public static int getNextID(){
+    public static int getNextID() {
         return nextID;
     }
-    
+
     /*
      * @return Person is correct*/
     public static boolean isCorrect(Person person) {
@@ -63,16 +63,15 @@ public abstract class Person {
 
     /*
      * @return random Person */
-    public static Person randomGenerator(){
+    public static Person randomGenerator() {
         Person person;
         String gender;
-        if((int)(Math.random()*2) % 2 == 0){
+        if ((int) (Math.random() * 2) % 2 == 0) {
             gender = "남자";
-        }
-        else
+        } else
             gender = "여자";
 
-        person = new Person(" ", gender){
+        person = new Person(" ", gender) {
 
             @Override
             public void work() {
@@ -89,8 +88,8 @@ public abstract class Person {
         return person;
     }
 
-    public void setHashName(){
-        this.name = getClass().getSuperclass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
+    public void setHashName() {
+        this.name = getClass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
     }
 
     public abstract void work();

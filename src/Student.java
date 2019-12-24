@@ -3,9 +3,10 @@
  * Created date : 2019-12-22
  */
 
-public class Student extends Person implements PartTimeJob{
+public class Student extends Person implements PartTimeJob {
     private int studentId;
     private static int nextID;
+
     /*
      * First Constructor */
     public Student(int id, String name, String gender) {
@@ -32,13 +33,12 @@ public class Student extends Person implements PartTimeJob{
         return this.studentId;
     }
 
-    public static Student randomGenerator(){
+    public static Student randomGenerator() {
         Student student;
         String gender;
-        if((int)(Math.random()*2) % 2 == 0){
+        if ((int) (Math.random() * 2) % 2 == 0) {
             gender = "남자";
-        }
-        else
+        } else
             gender = "여자";
 
         student = new Student(" ", gender);
