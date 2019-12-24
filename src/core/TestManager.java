@@ -4,6 +4,16 @@
  */
 package core;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.InputStreamReader;
+import java.io.FileInputStream;
+
 import person.PartTimeJob;
 import person.PartTimer;
 //import person.Person;
@@ -11,13 +21,11 @@ import person.Student;
 
 public class TestManager {
 	/**
-	  * Q8 test code
+	  * Q8 & Q12 test code
 	  */
 	public static void classGenerateTest() {
 		CostomArray<Student> students = new CostomArray<Student>();
 		CostomArray<PartTimer> partTimers = new CostomArray<PartTimer>();
-		//Student[] students = new Student[3];
-		//PartTimer[] partTimers = new PartTimer[3];
 		//Person person = new Person(1, " ", " ");
 		
 		for(int i = 0; i < 3; ++i) {
@@ -108,5 +116,59 @@ public class TestManager {
 		}
 		
 		System.out.println(thirdName);
+	}
+	
+	/**
+	  * Q13 code(class data to file) 
+	  */
+	public static <T> void fileWriter(CostomArray<T> array) throws IOException {
+		File classInfoFile = new File("files/out.txt");
+		try {
+			BufferedWriter fileBuffer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(classInfoFile)));
+			StringBuilder fileContentsBuilder = new StringBuilder();
+			
+			fileContentsBuilder.append(array.size() + "\n");
+			
+			for(int i = 0; i < array.size(); ++i) {
+				fileContentsBuilder.append(array.get(i).toString() + "\n");
+			}
+			
+			fileBuffer.append(fileContentsBuilder);
+			fileBuffer.flush();
+			fileBuffer.close();
+		} catch (FileNotFoundException e) {
+			classInfoFile.createNewFile();
+			fileWriter(array);
+			return;
+		}
+	}
+	
+	/**
+	  * Q13 code(file to class data)
+	  */
+	public static CostomArray<?> fileReader() throws IOException {
+		File classInfoFile = new File("files/out.txt");
+		CostomArray<?> classInfoArray = new CostomArray<>();
+		try {
+			BufferedReader fileBuffer = new BufferedReader(new InputStreamReader(new FileInputStream(classInfoFile)));
+			String fileLine = fileBuffer.readLine();
+			
+			fileLine = fileBuffer.readLine();
+			int classCount = Integer.parseInt(fileLine);
+			String[][] splitLine = new String[100][];
+			
+			for(int i = 0; i < classCount; ++i) {
+				fileLine = fileBuffer.readLine();
+				splitLine[i] = fileLine.split(":|#");
+				
+			}
+			
+			
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
+		}
+		
+		return classInfoArray;
 	}
 }

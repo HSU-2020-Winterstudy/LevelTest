@@ -41,7 +41,7 @@ public class Student extends Person implements PartTimeJob {
 			gender = "female";
 		}
 
-		Student student = new Student(Math.abs(ThreadLocalRandom.current().nextInt()), Student.class.getName() + "-" + Integer.toHexString(Student.class.hashCode()),
+		Student student = new Student(Math.abs(ThreadLocalRandom.current().nextInt()), Student.class.getSimpleName() + "-" + Integer.toHexString(Student.class.hashCode()),
 				gender);
 		
 		return student;
@@ -60,5 +60,21 @@ public class Student extends Person implements PartTimeJob {
 	@Override
 	public void workPartTime() {
 		System.out.println("workparttime-student");
+	}
+	
+	@Override
+	public String toString() {
+		String[] classData = new String[4];
+		classData[0] = "class:" + this.getClass().getSimpleName() + "#";
+		classData[1] = "ID:" + Integer.toString(studentID) + "#";
+		classData[2] = "name:" + name + "#";
+		classData[3] = "gender:" + getGender() + "#";
+		
+		String classInfo = "";
+		for(int i = 0; i < classData.length; ++i) {
+			classInfo += classData[i];
+		}
+		
+		return classInfo;
 	}
 }
