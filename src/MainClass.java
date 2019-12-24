@@ -49,5 +49,33 @@ public class MainClass {
             partTimers[i].workPartTime();
         }
 
+        //PartTimerJob test
+
+        PartTimeJob[] partTimeJobs = new PartTimeJob[6];
+
+        for (int i = 0; i < 3; i++) {
+            partTimeJobs[i] = students[i];
+            partTimeJobs[i + 3] = partTimers[i];
+        }
+
+        //for test
+        System.out.println("=============");
+        for (int i = 0; i < 6; i++) {
+            partTimeJobs[i].workPartTime();
+        }
+
+        //while test
+        System.out.println("=============");
+        int i = 0;
+        while (i < 6) {
+            partTimeJobs[i].workPartTime();
+            i++;
+        }
+
+        //for-each test
+        System.out.println("=============");
+        for(PartTimeJob test : partTimeJobs){
+            test.workPartTime();
+        }
     }
 }
