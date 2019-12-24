@@ -72,12 +72,6 @@ public abstract class Person
 	public abstract String eat();
 
 	//랜덤 생성 메서드
-	public static void randomcreater()
-	{
-
-	}
-
-	//랜덤 생성 메서드
 	public static Person randomcreater()
 	{
 		String gender;
