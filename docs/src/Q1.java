@@ -2,7 +2,7 @@
  * Author : unnokid
  * created date : 2019-12-24
  */
-
+package person;
 //PartTimeJob 인터페이스 생성
 public interface PartTimeJob
 {
