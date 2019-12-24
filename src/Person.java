@@ -92,6 +92,10 @@ public abstract class Person {
         this.name = getClass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
     public abstract void work();
 
     public abstract void eat();
