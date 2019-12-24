@@ -70,6 +70,51 @@ public abstract class Person
 	public abstract String work();
 
 	public abstract String eat();
+
+	//랜덤 생성 메서드
+	public static void randomcreater()
+	{
+
+	}
+
+	//랜덤 생성 메서드
+	public static Person randomcreater()
+	{
+		String gender;
+		//0~1나오는 함수
+		if((int)(math.random()*2)%2 == 0)
+		{
+			gender ="남자";
+		}
+		else
+		{
+			gender ="여자";
+		}
+
+		Person person = new Person(" ", gender)
+		{
+			@java.lang.Override
+			public String eat()
+			{
+				return "rice";
+			}
+
+			@java.lang.Override
+			public String work()
+			{
+				return "run";
+			}
+		};
+
+		person.setname();
+		return person;
+
+	}
+	//이름 만들기
+	public void setname()
+	{
+		this.name = getClass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
+	}
 }
 public class Student extends Person implements PartTimeJob
 {
@@ -117,4 +162,44 @@ public class Student extends Person implements PartTimeJob
 	{
 
 	}
+
+	//랜덤 생성 메서드
+	public static Student randomcreater()
+	{
+		String gender;
+		//0~1나오는 함수
+		if((int)(math.random()*2)%2 == 0)
+		{
+			gender ="남자";
+		}
+		else
+		{
+			gender ="여자";
+		}
+
+		Student student = new Student(" ", gender)
+		{
+			@java.lang.Override
+			public String eat()
+			{
+				return "school feeding";
+			}
+
+			@java.lang.Override
+			public String work()
+			{
+				return "study";
+			}
+		};
+
+		student.setname();
+		return student;
+
+	}
+	//이름 만들기
+	public void setname()
+	{
+		this.name = getClass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
+	}
+
 }
