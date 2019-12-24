@@ -61,7 +61,40 @@ public abstract class Person {
             return false;
     }
 
+    /*
+     * @return random Person */
+    public static Person randomGenerator(){
+        Person person;
+        String gender;
+        if((int)(Math.random()*2) % 2 == 0){
+            gender = "남자";
+        }
+        else
+            gender = "여자";
+
+        person = new Person(" ", gender){
+
+            @Override
+            public void work() {
+
+            }
+
+            @Override
+            public void eat() {
+
+            }
+        };
+        person.setHashName();
+
+        return person;
+    }
+
+    public void setHashName(){
+        this.name = getClass().getSuperclass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
+    }
+
     public abstract void work();
 
     public abstract void eat();
+
 }
