@@ -6,7 +6,6 @@
 public class Student extends Person implements PartTimeJob{
     private int studentId;
     private static int nextID;
-
     /*
      * First Constructor */
     public Student(int id, String name, String gender) {
@@ -31,6 +30,32 @@ public class Student extends Person implements PartTimeJob{
     @Override
     public int getId() {
         return this.studentId;
+    }
+
+    public static Student randomGenerator(){
+        Student student;
+        String gender;
+        if((int)(Math.random()*2) % 2 == 0){
+            gender = "남자";
+        }
+        else
+            gender = "여자";
+
+        student = new Student(" ", gender){
+
+            @Override
+            public void work() {
+                
+            }
+
+            @Override
+            public void eat() {
+
+            }
+        };
+        student.setHashName();
+
+        return student;
     }
 
     @Override
