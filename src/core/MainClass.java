@@ -11,14 +11,10 @@ public class MainClass {
 
         MyArray<PartTimer> myArray = new MyArray<>();
 
-        for (int i = 0; i < 100; ++i) {
+        for (int i = 0; i < 200; ++i) {
             myArray.add(PartTimer.generatePartTimer());
         }
 
-        try {
-            FileIO.writeFile(myArray);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FileIO.writeFile(myArray);
     }
 }

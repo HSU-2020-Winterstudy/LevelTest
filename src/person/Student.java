@@ -66,6 +66,10 @@ public class Student extends Person implements PartTimeJob {
         return student;
     }
 
+    /**
+     *
+     * @return String of ID, studentID, name, gender
+     */
     @Override
     public String toString() {
         return super.getID() + "," + this.getID() + "," + this.getName() + "," + this.getGender();
