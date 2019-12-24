@@ -12,6 +12,10 @@ public abstract class Person {
     // true: male, false: female
     private boolean gender;
     private static int nextID;
+    private enum Gender {
+        MALE,
+        FEMALE;
+    }
 
     /**
      *
