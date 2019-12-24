@@ -1,19 +1,21 @@
-/* Q5.md
+/* Q7.md
  * Author : unnokid
  * created date : 2019-12-24
  */
-package person;
+
+
 //PartTimeJob 인터페이스 생성
-public interface PartTimeJob
+
+interface PartTimeJob
 {
 	public void workPartTime();
 }
 
 //추상클래스
-public abstract class Person
+abstract class Person
 {
 	private int ID;
-	private String name;
+	String name;
 	private String gender;
 	private static int nextID;
 	
@@ -35,7 +37,7 @@ public abstract class Person
 	}
 
 	//2번 생성자
-	public Person(Stirng name, String gender)
+	public Person(String name, String gender)
 	{
 		this.name=name;
 		this.gender=gender;
@@ -59,9 +61,10 @@ public abstract class Person
 		return gender;
 	}
 
+
 	public static boolean correct(Person person)
 	{
-		if(person.ID >-1 && person.ID < next ID)
+		if(person.ID >-1 && person.ID < nextID)
 			return true;
 		else
 			return false;
@@ -76,7 +79,7 @@ public abstract class Person
 	{
 		String gender;
 		//0~1나오는 함수
-		if((int)(math.random()*2)%2 == 0)
+		if(((int) (Math.random() * 2) % 2) == 0)
 		{
 			gender ="남자";
 		}
@@ -110,7 +113,7 @@ public abstract class Person
 		this.name = getClass().getSimpleName() + "-" + Integer.toHexString(this.hashCode()).toUpperCase();
 	}
 }
-public class Student extends Person implements PartTimeJob
+class Student extends Person implements PartTimeJob
 {
 	private int StudentID;
 	private static int nextID;
@@ -162,7 +165,7 @@ public class Student extends Person implements PartTimeJob
 	{
 		String gender;
 		//0~1나오는 함수
-		if((int)(math.random()*2)%2 == 0)
+		if(((int) (Math.random() * 2) % 2) == 0)
 		{
 			gender ="남자";
 		}
@@ -173,13 +176,13 @@ public class Student extends Person implements PartTimeJob
 
 		Student student = new Student(" ", gender)
 		{
-			@java.lang.Override
+			@Override
 			public String eat()
 			{
 				return "school feeding";
 			}
 
-			@java.lang.Override
+			@Override
 			public String work()
 			{
 				return "study";

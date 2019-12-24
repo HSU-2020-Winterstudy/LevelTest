@@ -1,8 +1,8 @@
-/* Q5.md
+/* Q7.md
  * Author : unnokid
  * created date : 2019-12-24
  */
-package person;
+
 //사람이면서 Student과 구분되는 작업해주기
 public class PartTimer extends Person implements PartTimeJob
 {
@@ -11,12 +11,17 @@ public class PartTimer extends Person implements PartTimeJob
         super(ID,name,gender);
     }
 
+    public PartTimer(String name, String gender)
+    {
+        super(name,gender);
+    }
+
     //랜덤 생성 메서드
     public static PartTimer randomcreater()
     {
         String gender;
         //0~1나오는 함수
-        if((int)(math.random()*2)%2 == 0)
+        if((int)(Math.random()*2)%2 == 0)
         {
             gender ="남자";
         }
@@ -26,13 +31,13 @@ public class PartTimer extends Person implements PartTimeJob
         }
         PartTimer partTimer = new PartTimer("", gender)
         {
-            @java.lang.Override
+            @Override
             public String eat()
             {
                 return "bread";
             }
 
-            @java.lang.Override
+            @Override
             public String work()
             {
                 return "part-time job";
