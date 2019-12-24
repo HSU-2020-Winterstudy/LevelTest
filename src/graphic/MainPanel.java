@@ -10,15 +10,17 @@ public class MainPanel {
     public MainPanel() {
 
         mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
         // ListPanel
-        
+        mainPanel.add(new GamePanel().getPanel(), BorderLayout.CENTER);
 
         // InputPanel
+        mainPanel.add(new InputPanel().getPanel(), BorderLayout.SOUTH);
 
     }
 
-    public JPanel getMainPanel() {
+    public JPanel getPanel() {
         return mainPanel;
     }
 }
