@@ -1,7 +1,13 @@
-/* Q4.md
+/* Q5.md
  * Author : unnokid
- * created date : 2019-12-21
+ * created date : 2019-12-24
  */
+
+//PartTimeJob 인터페이스 생성
+public interface PartTimeJob
+{
+	public void workPartTime();
+}
 
 //추상클래스
 public abstract class Person
@@ -65,7 +71,7 @@ public abstract class Person
 
 	public abstract String eat();
 }
-public class Student extends Person
+public class Student extends Person implements PartTimeJob
 {
 	private int StudentID;
 	private static int nextID;
@@ -93,6 +99,7 @@ public class Student extends Person
 	//override getID()
 	public int getID()
 	{
+
 		return this.StudentID;
 	}
 
@@ -106,5 +113,8 @@ public class Student extends Person
 		return "eating";
 	}
 
-}
+	public void workPartTime()
+	{
 
+	}
+}
