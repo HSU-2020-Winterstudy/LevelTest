@@ -5,21 +5,20 @@
 
 public class MainClass {
     public static void main(String[] args) {
-        Student[] students = new Student[100];
+        MyArray<Student> studentArray = new MyArray<Student>();
 
         for (int i = 0; i < 100; i++) {
-            students[i] = Student.randomGenerator();
-            StringBuilder insertA = new StringBuilder(students[i].getName());
-            insertA.setCharAt(8, 'A');
-            students[i].setName(insertA.toString());
-
-            System.out.println(students[i].getName());
+            Student student = Student.randomGenerator();
+            studentArray.add(student);
+            System.out.println(studentArray.get(i).getName());
         }
 
-        StringBuilder third = new StringBuilder();
+        MyArray<PartTimer> partTimerArray = new MyArray<PartTimer>();
+
         for (int i = 0; i < 100; i++) {
-            third.append(students[i].getName().charAt(10));
+            PartTimer partTimer = PartTimer.randomGenerator();
+            partTimerArray.add(partTimer);
+            System.out.println(partTimerArray.get(i).getName());
         }
-        System.out.println(third.toString());
     }
 }
