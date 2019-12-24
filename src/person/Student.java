@@ -17,7 +17,7 @@ public class Student extends Person implements PartTimeJob {
      * @param name
      * @param gender
      */
-    public Student(int ID, String name, boolean gender) {
+    public Student(int ID, String name, Gender gender) {
 
         super(name, gender);
 
@@ -35,7 +35,7 @@ public class Student extends Person implements PartTimeJob {
      * @param name
      * @param gender
      */
-    public Student(String name, boolean gender) {
+    public Student(String name, Gender gender) {
 
         super(name, gender);
 
@@ -58,7 +58,7 @@ public class Student extends Person implements PartTimeJob {
     }
 
     public static Student generateStudent() {
-        Student student = new Student(" ", true);
+        Student student = new Student(" ", Gender.MALE);
 
         student.setName();
         student.setGender();

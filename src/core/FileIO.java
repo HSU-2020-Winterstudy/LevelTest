@@ -44,10 +44,24 @@ public class FileIO {
             String line = bufferedReader.readLine();
             String[] contents = line.split(",");
             if ("PartTimer".equals(contents[0])) {
-                myArray.add(new PartTimer(Integer.parseInt(contents[1]), contents[2], Boolean.getBoolean(contents[3])));
+                Person.Gender gender = Person.Gender.MALE;
+                if ("MALE".equals(contents[3])) {
+                    gender = Person.Gender.MALE;
+                }
+                else {
+                    gender = Person.Gender.FEMALE;
+                }
+                myArray.add(new PartTimer(Integer.parseInt(contents[1]), contents[2], gender));
             }
             else if ("Student".equals(contents[0])) {
-                myArray.add(new Student(Integer.parseInt(contents[1]), contents[2], Boolean.getBoolean(contents[3])));
+                Person.Gender gender = Person.Gender.MALE;
+                if ("MALE".equals(contents[3])) {
+                    gender = Person.Gender.MALE;
+                }
+                else {
+                    gender = Person.Gender.FEMALE;
+                }
+                myArray.add(new Student(Integer.parseInt(contents[1]), contents[2], gender));
             }
         } catch (IOException e) {
             e.printStackTrace();

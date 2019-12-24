@@ -7,15 +7,16 @@ package person;
  */
 public abstract class Person {
 
-    private int ID;
-    private String name;
-    // true: male, false: female
-    private boolean gender;
-    private static int nextID;
-    private enum Gender {
+    public enum Gender {
         MALE,
         FEMALE;
     }
+
+    private int ID;
+    private String name;
+    // true: male, false: female
+    private static int nextID;
+    private Gender gender;
 
     /**
      *
@@ -24,7 +25,7 @@ public abstract class Person {
      * @param name
      * @param gender
      */
-    public Person(int ID, String name, boolean gender) {
+    public Person(int ID, String name, Gender gender) {
         if (nextID == ID) {
             this.ID = nextID++;
         }
@@ -42,7 +43,7 @@ public abstract class Person {
      * @param gender
      * the ID is initialized with the static variable nextID
      */
-    public Person(String name, boolean gender) {
+    public Person(String name, Gender gender) {
         this.ID = nextID++;
         this.name = name;
         this.gender = gender;
@@ -58,7 +59,7 @@ public abstract class Person {
      */
     public static Person generatePerson() {
 
-        Person person = new Person(" ", true) {
+        Person person = new Person(" ", Gender.MALE) {
             @Override
             public void work() {
                 System.out.println("person works!");
@@ -90,7 +91,14 @@ public abstract class Person {
      */
     protected void setGender() {
         int genderSetter = (int) (Math.random() * 2);
-        this.gender = genderSetter != 0;
+        switch (genderSetter) {
+            case 0:
+                this.gender = Gender.MALE;
+                break;
+            case 1:
+                this.gender = Gender.FEMALE;
+                break;
+        }
     }
 
     /**
@@ -126,7 +134,7 @@ public abstract class Person {
      *
      * @return gender of the object
      */
-    public boolean getGender() {
+    public Gender getGender() {
         return gender;
     }
 
