@@ -1,7 +1,5 @@
 package questions;
 
-import java.lang.reflect.Array;
-
 public class NewDynamic <T> {
 
     private Object[] arr;
@@ -62,7 +60,6 @@ public class NewDynamic <T> {
         }
         return index;
     }
-
 
     public void remove(T data){
         try{

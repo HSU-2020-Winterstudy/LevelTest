@@ -16,7 +16,7 @@ public class ButtonPanel {
         rouletteButton.setFont(new Font("궁서",Font.BOLD,20));
         saveButton.setFont(new Font("궁서",Font.BOLD,20));
 
-        rouletteButton.addActionListener(event -> Logic.getInstance().getLucky());
+        rouletteButton.addActionListener(event -> Logic.getInstance().roulette());
         saveButton.addActionListener(event -> Logic.getInstance().saveLuckyList());
 
         contentPanel.add(rouletteButton,BorderLayout.CENTER);

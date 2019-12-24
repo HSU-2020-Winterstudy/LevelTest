@@ -34,9 +34,7 @@ public class Roulette {
         labelTextFieldPanel = new LabelTextFieldPanel();
         buttonPanel = new ButtonPanel();
 
-        Logic.getInstance().addTopLabelSetText(labelTextFieldPanel.topLabelSetText());
-        Logic.getInstance().addMidLabelSetText(labelTextFieldPanel.midLabelSetText());
-        Logic.getInstance().addBotLabelSetText(labelTextFieldPanel.botLabelSetText());
+        Logic.getInstance().addLabels(labelTextFieldPanel.labels());
     }
     private void setMenuBar(){
         JMenuBar menuBar = new JMenuBar();

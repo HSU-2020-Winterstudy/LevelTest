@@ -5,18 +5,23 @@ import questions.NewDynamic;
 import questions.Person;
 
 import javax.swing.*;
-import java.awt.*;
-import java.util.function.Consumer;
+import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 public class Logic {
     private static Logic instance;
     private NewDynamic<Person> personList;
-    private NewDynamic<Person> luckyPeople;
     private FileManager fileManager = new FileManager();
-    private Consumer<String> topLabelSetText;
-    private Consumer<String> midLabelSetText;
-    private Consumer<String> botLabelSetText;
-    private String[] luckyInfo = new String[2];
+    private DropNameTask dropNameTask;
+    private ScheduledExecutorService service;
+    private ScheduledFuture<?> dropFuture;
+    private boolean isRouletteRunning = false;
+    private JLabel luckyLabel;
+    private ArrayList<Person> generatedPerson = new ArrayList<>();
+    private NewDynamic<Person> luckyPeople;
 
     private Logic() {
         initialize();
@@ -30,49 +35,56 @@ public class Logic {
     }
 
     private void initialize() {
+        dropNameTask = new DropNameTask();
         FileManager fileManager = new FileManager();
         personList = fileManager.fileReader();
         luckyPeople = new NewDynamic<>();
     }
-
-    public void addTopLabelSetText(Consumer<String> setText) {
-        this.topLabelSetText = setText;
-    }
-    public void addMidLabelSetText(Consumer<String> setText) {
-        this.midLabelSetText = setText;
-    }
-    public void addBotLabelSetText(Consumer<String> setText) {
-        this.botLabelSetText = setText;
+    public void addLabels(JLabel[] labels){
+        luckyLabel = labels[2];
+        dropNameTask.addLabel(labels);
     }
 
-    public void getLucky() {
-        int luckyIndex = (int) (Math.random() * personList.size());
-        luckyPeople.put(personList.get(luckyIndex));
-        luckyInfo[0] = personList.get(luckyIndex).getName();
-        luckyInfo[1] = personList.get(luckyIndex).toString();
-        midLabelSetText.accept(luckyInfo[0]);
-        getAboveLucky();
-        getUnderLucky();
-        JOptionPane.showMessageDialog(null,luckyInfo[1],"You are Lucky!",JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    public void getAboveLucky() {
+    public String randomPerson() {
         int randomIndex = (int) (Math.random() * personList.size());
-        topLabelSetText.accept(personList.get(randomIndex).getName());
+        generatedPerson.add(personList.get(randomIndex));
+        return personList.get(randomIndex).getName();
+    }
+    public void roulette(){
+        if(!isRouletteRunning){
+            service = Executors.newScheduledThreadPool(1);
+            dropFuture = service.scheduleWithFixedDelay(dropNameTask,0,100, TimeUnit.MILLISECONDS);
+            isRouletteRunning = true;
+        }
+    }
+    public void stopRoulette(){
+        if(isRouletteRunning){
+            dropFuture.cancel(true);
+            service.shutdown();
+            isRouletteRunning = false;
+            int personIndex = getPersonIndex(luckyLabel.getText());
+            luckyPeople.put(generatedPerson.get(personIndex));
+            JOptionPane.showMessageDialog(null, generatedPerson.get(personIndex).toString(), "You are Lucky!", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    private int getPersonIndex(String name){
+        for(int i=0;i<generatedPerson.size();i++){
+            if(generatedPerson.get(i).getName().equals(name)){
+                return i;
+            }
+        }
+        return -1;
     }
 
-    public void getUnderLucky() {
-        int randomIndex = (int) (Math.random() * personList.size());
-        botLabelSetText.accept(personList.get(randomIndex).getName());
+    public void saveLuckyList() {
+        fileManager.fileWriter("luckyMan.txt", luckyPeople);
     }
-    public void saveLuckyList(){
-        fileManager.fileWriter("luckyMan.txt",luckyPeople);
-    }
-    public JTextArea display(){
+
+    public JTextArea display() {
         JTextArea displayTA = new JTextArea();
-        if(luckyPeople != null){
-            for(int i=0;i<luckyPeople.size();i++){
-                displayTA.append(luckyPeople.get(i).toString()+"\n");
+        if (luckyPeople != null) {
+            for (int i = 0; i < luckyPeople.size(); i++) {
+                displayTA.append(luckyPeople.get(i).toString() + "\n");
             }
         }
         return displayTA;

@@ -1,9 +1,12 @@
 package questions.swing.graphics;
 
+import questions.swing.logic.Logic;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.util.function.Consumer;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LabelTextFieldPanel {
     private JPanel contentPanel;
@@ -44,19 +47,24 @@ public class LabelTextFieldPanel {
         labels.add(midNameLabel);
         labels.add(botNameLabel);
 
+        labels.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Logic.getInstance().stopRoulette();
+            }
+        });
+
         contentPanel.add(labels, BorderLayout.CENTER);
         contentPanel.add(inputTF, BorderLayout.SOUTH);
     }
-    public Consumer<String> topLabelSetText(){
-        return string -> topNameLabel.setText(string);
-    }
-    public Consumer<String> midLabelSetText(){
-        return string -> midNameLabel.setText(string);
-    }
-    public Consumer<String> botLabelSetText(){
-        return string -> botNameLabel.setText(string);
-    }
 
+    public JLabel[] labels(){
+        JLabel[] jLabels = new JLabel[3];
+        jLabels[0] = botNameLabel;
+        jLabels[1] = midNameLabel;
+        jLabels[2] = topNameLabel;
+        return  jLabels;
+    }
     private void initialize() {
         contentPanel = new JPanel();
         topNameLabel = new JLabel("JohnDoe");
@@ -69,4 +77,5 @@ public class LabelTextFieldPanel {
     public JPanel getContentPanel() {
         return contentPanel;
     }
+
 }
