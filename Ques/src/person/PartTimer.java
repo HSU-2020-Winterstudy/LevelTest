@@ -33,7 +33,7 @@ public abstract class PartTimer extends Person implements PartTimeJob {
 	}
 	
 	public static boolean checker(PartTimer p) {
-		if(p.getID() >= -1 && p.getID()<p.getNextId())
+		if(p.getID() > -1 && p.getID()<p.getNextId())
 			return true;
 		else
 			return false;
@@ -56,7 +56,7 @@ public abstract class PartTimer extends Person implements PartTimeJob {
 	
 	public static void main(String[] args) {
 		PartTimer a,b,c; 
-		a= new PartTimer(1,"±è¼ºÅÂ","male") {};
+		a= new PartTimer(1,"ê¹€ì„±íƒœ","male") {};
 		b= new PartTimer(2,"Ronaldo","male") {};
 		c= new PartTimer("kim","female") {};
 		
@@ -65,7 +65,6 @@ public abstract class PartTimer extends Person implements PartTimeJob {
 		for(int i = 0; i<array.length; i++) {
 			System.out.println(array[i].getID());
 			System.out.println(array[i].getName());
-			System.out.println(array[i].getSex());
 			System.out.println(array[i].getSex());
 			System.out.println(checker(array[i]));
 			array[i].work();

@@ -61,7 +61,7 @@ public abstract class Person {
 	  * @return boolean about ID's correction
 	  */
 	public static boolean checker(Person p) {
-		if(p.getID() >= -1 && p.getID()<nextId)
+		if(p.getID() > -1 && p.getID()<nextId)
 			return true;
 		else
 			return false;

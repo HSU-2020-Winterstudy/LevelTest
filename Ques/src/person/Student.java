@@ -49,7 +49,7 @@ public abstract class Student extends Person implements PartTimeJob  {
 	}
 	
 	public static boolean checker(Student p) {
-		if(p.getID() >= -1 && p.getID()<nextSId)
+		if(p.getID() > -1 && p.getID()<nextSId)
 			return true;
 		else
 			return false;
@@ -102,7 +102,6 @@ public abstract class Student extends Person implements PartTimeJob  {
 			for(int i = 0; i<array.length; i++) {
 				System.out.println(array[i].getID());
 				System.out.println(array[i].getName());
-				System.out.println(array[i].getSex());
 				System.out.println(array[i].getSex());
 				System.out.println(checker(array[i]));
 				array[i].work();
